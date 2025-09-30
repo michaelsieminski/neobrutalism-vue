@@ -5,6 +5,7 @@ node_modules
 out
 dist
 dist-ssr
+public
 *.tgz
 
 # code coverage
