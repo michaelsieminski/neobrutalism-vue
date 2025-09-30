@@ -26,6 +26,10 @@
         {
           "path": "registry/neobrutalism/ui/accordion/AccordionTrigger.vue",
           "type": "registry:component"
+        },
+        {
+          "path": "registry/neobrutalism/ui/accordion/index.ts",
+          "type": "registry:component"
         }
       ],
       "tailwind": {
