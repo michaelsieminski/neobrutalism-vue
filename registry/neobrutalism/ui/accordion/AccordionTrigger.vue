@@ -19,7 +19,7 @@ const delegatedProps = reactiveOmit(props, "class");
       v-bind="delegatedProps"
       :class="
         cn(
-          'flex flex-1 items-center justify-between py-4 font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',
+          'flex flex-1 items-center justify-between text-left text-base text-main-foreground border-border focus-visible:ring-[3px] bg-main p-4 font-heading transition-all [&[data-state=open]>svg]:rotate-180 data-[state=open]:rounded-b-none data-[state=open]:border-b-2 disabled:pointer-events-none disabled:opacity-50',
           props.class
         )
       "
@@ -27,7 +27,7 @@ const delegatedProps = reactiveOmit(props, "class");
       <slot />
       <slot name="icon">
         <ChevronDown
-          class="h-4 w-4 shrink-0 transition-transform duration-200"
+          class="pointer-events-none size-5 shrink-0 transition-transform duration-200"
         />
       </slot>
     </AccordionTrigger>
