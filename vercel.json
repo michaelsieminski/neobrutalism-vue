@@ -1,0 +1,46 @@
+{
+  "buildCommand": "bun run build",
+  "outputDirectory": ".",
+  "headers": [
+    {
+      "source": "/registry/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/registry.json",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/registry/(.*)",
+      "destination": "/registry/$1"
+    },
+    {
+      "source": "/registry.json",
+      "destination": "/registry.json"
+    }
+  ]
+}

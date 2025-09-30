@@ -4,9 +4,22 @@
   "description": "A vue-based registry of neobrutalism-styled Tailwind components.",
   "author": "Michael Sieminski",
   "type": "module",
+  "main": "./dist/neobrutalism-vue.cjs.js",
+  "module": "./dist/neobrutalism-vue.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/neobrutalism-vue.es.js",
+      "require": "./dist/neobrutalism-vue.cjs.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc && vite build && vue-tsc --declaration --emitDeclarationOnly --outDir dist",
     "preview": "vite preview"
   },
   "dependencies": {
