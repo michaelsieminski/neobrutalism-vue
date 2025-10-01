@@ -27,6 +27,7 @@
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare",
+		"check": "vue-tsc",
 		"format": "biome format --write",
 		"registry:build": "shadcn-vue build"
 	},
@@ -35,6 +36,7 @@
 		"@fontsource-variable/public-sans": "5.2.7",
 		"@tanstack/vue-table": "8.21.3",
 		"@vueuse/core": "13.9.0",
+		"class-variance-authority": "0.7.1",
 		"clsx": "2.1.1",
 		"lucide-vue-next": "0.544.0",
 		"nuxt": "4.1.2",
@@ -49,6 +51,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.2.4",
-		"@tailwindcss/vite": "4.1.14"
+		"@tailwindcss/vite": "4.1.14",
+		"vue-tsc": "3.1.0"
 	}
 }

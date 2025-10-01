@@ -8,6 +8,7 @@
         "@fontsource-variable/public-sans": "5.2.7",
         "@tanstack/vue-table": "8.21.3",
         "@vueuse/core": "13.9.0",
+        "class-variance-authority": "0.7.1",
         "clsx": "2.1.1",
         "lucide-vue-next": "0.544.0",
         "nuxt": "4.1.2",
@@ -23,6 +24,7 @@
       "devDependencies": {
         "@biomejs/biome": "2.2.4",
         "@tailwindcss/vite": "4.1.14",
+        "vue-tsc": "3.1.0",
       },
     },
   },
@@ -668,6 +670,8 @@
     "chownr": ["chownr@3.0.0", "", {}, "sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g=="],
 
     "citty": ["citty@0.1.6", "", { "dependencies": { "consola": "^3.2.3" } }, "sha512-tskPPKEs8D2KPafUypv2gxwJP8h/OaJmC82QQGGDQcHvXX43xF2VDACcJVmZ0EuSxkpO9Kc4MlrA3q0+FG58AQ=="],
+
+    "class-variance-authority": ["class-variance-authority@0.7.1", "", { "dependencies": { "clsx": "^2.1.1" } }, "sha512-Ka+9Trutv7G8M6WT6SeiRWz792K5qEqIGEGzXKhAE6xOWAY6pPH8U+9IY3oCMv6kqTmLsv7Xh/2w2RigkePMsg=="],
 
     "cli-cursor": ["cli-cursor@5.0.0", "", { "dependencies": { "restore-cursor": "^5.0.0" } }, "sha512-aCj4O5wKyszjMmDT4tZj93kxyydN/K5zPWSCe6/0AV/AA1pqe5ZBIw0a2ZfPQV7lL5/yb5HsUreJ6UFAF1tEQw=="],
 
