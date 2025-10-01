@@ -4,7 +4,7 @@ import { Button } from "@registry/neobrutalism/ui/button";
 
 <template>
   <div
-    class="flex flex-col items-center justify-center min-h-[calc(100dvh-5.1rem)]"
+    class="flex flex-col items-center justify-center min-h-[calc(100dvh-5rem)]"
   >
     <h1 class="text-4xl font-title mb-2">neobrutalism-vue</h1>
     <p class="text-lg mb-4">

@@ -13,7 +13,7 @@ analytics.init(
     <Navigation />
 
     <NuxtRouteAnnouncer />
-    <div class="w-full min-h-[calc(100dvh-5.1rem)]">
+    <div class="w-full min-h-[calc(100dvh-5rem)] pt-[6rem]">
       <NuxtPage />
     </div>
   </div>

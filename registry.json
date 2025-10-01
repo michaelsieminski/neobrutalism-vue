@@ -1,7 +1,7 @@
 {
 	"$schema": "https://shadcn-vue.com/schema/registry.json",
 	"name": "neobrutalism-vue",
-	"homepage": "https://neobrutalism-vue.vercel.app",
+	"homepage": "https://neobrutalism-vue.com",
 	"items": [
 		{
 			"name": "accordion",
@@ -62,6 +62,118 @@
 					}
 				}
 			}
+		},
+		{
+			"name": "input",
+			"type": "registry:ui",
+			"title": "Input",
+			"description": "A text input field component with neobrutalism styling.",
+			"dependencies": ["@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/input/Input.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/input/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "label",
+			"type": "registry:ui",
+			"title": "Label",
+			"description": "A label component for form elements.",
+			"dependencies": ["reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/label/Label.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/label/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "sheet",
+			"type": "registry:ui",
+			"title": "Sheet",
+			"description": "A slide-over panel component that extends from the edge of the screen.",
+			"dependencies": ["reka-ui", "class-variance-authority"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/sheet/Sheet.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sheet/SheetClose.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sheet/SheetContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sheet/SheetDescription.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sheet/SheetFooter.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sheet/SheetHeader.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sheet/SheetTitle.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sheet/SheetTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sheet/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "tooltip",
+			"type": "registry:ui",
+			"title": "Tooltip",
+			"description": "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+			"dependencies": ["reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/tooltip/Tooltip.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/tooltip/TooltipContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/tooltip/TooltipProvider.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/tooltip/TooltipTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/tooltip/index.ts",
+					"type": "registry:component"
+				}
+			]
 		},
 		{
 			"name": "utils",
