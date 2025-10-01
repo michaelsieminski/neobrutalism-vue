@@ -1,23 +1,23 @@
 {
-  "buildCommand": "bun registry:build",
-  "outputDirectory": "public",
-  "headers": [
-    {
-      "source": "/r/(.*).json",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, OPTIONS"
-        },
-        {
-          "key": "Content-Type",
-          "value": "application/json"
-        }
-      ]
-    }
-  ]
+	"installCommand": "bun install",
+	"buildCommand": "bun run build",
+	"headers": [
+		{
+			"source": "/r/(.*).json",
+			"headers": [
+				{
+					"key": "Access-Control-Allow-Origin",
+					"value": "*"
+				},
+				{
+					"key": "Access-Control-Allow-Methods",
+					"value": "GET, OPTIONS"
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			]
+		}
+	]
 }

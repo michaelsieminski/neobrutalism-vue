@@ -6,7 +6,7 @@ import { AccordionContent } from "reka-ui";
 import { cn } from "@/lib/utils";
 
 const props = defineProps<
-  AccordionContentProps & { class?: HTMLAttributes["class"] }
+	AccordionContentProps & { class?: HTMLAttributes["class"] }
 >();
 
 const delegatedProps = reactiveOmit(props, "class");

@@ -1,36 +1,24 @@
-# dependencies (bun install)
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+.cache
+dist
+
+# Node dependencies
 node_modules
 
-# output
-out
-dist
-dist-ssr
-public
-*.tgz
-
-# code coverage
-coverage
-*.lcov
-
-# logs
+# Logs
 logs
-_.log
-report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
+*.log
 
-# dotenv environment variable files
-.env
-.env.development.local
-.env.test.local
-.env.production.local
-.env.local
-
-# caches
-.eslintcache
-.cache
-*.tsbuildinfo
-
-# IntelliJ based IDEs
+# Misc
+.DS_Store
+.fleet
 .idea
 
-# Finder (MacOS) folder config
-.DS_Store
+# Local env files
+.env
+.env.*
+!.env.example

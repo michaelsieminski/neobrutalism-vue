@@ -7,7 +7,7 @@ import { AccordionHeader, AccordionTrigger } from "reka-ui";
 import { cn } from "@/lib/utils";
 
 const props = defineProps<
-  AccordionTriggerProps & { class?: HTMLAttributes["class"] }
+	AccordionTriggerProps & { class?: HTMLAttributes["class"] }
 >();
 
 const delegatedProps = reactiveOmit(props, "class");

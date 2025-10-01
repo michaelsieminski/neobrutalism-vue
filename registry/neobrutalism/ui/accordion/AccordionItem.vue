@@ -6,7 +6,7 @@ import { AccordionItem, useForwardProps } from "reka-ui";
 import { cn } from "@/lib/utils";
 
 const props = defineProps<
-  AccordionItemProps & { class?: HTMLAttributes["class"] }
+	AccordionItemProps & { class?: HTMLAttributes["class"] }
 >();
 
 const delegatedProps = reactiveOmit(props, "class");
