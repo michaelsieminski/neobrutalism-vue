@@ -64,6 +64,170 @@
 			}
 		},
 		{
+			"name": "avatar",
+			"type": "registry:ui",
+			"title": "Avatar",
+			"description": "An image element with a fallback for representing a user or entity.",
+			"dependencies": ["reka-ui"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/avatar/Avatar.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/avatar/AvatarFallback.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/avatar/AvatarImage.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/avatar/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "breadcrumb",
+			"type": "registry:ui",
+			"title": "Breadcrumb",
+			"description": "A navigation component that displays the user's location within a website hierarchy.",
+			"dependencies": ["reka-ui"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/breadcrumb/Breadcrumb.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/breadcrumb/BreadcrumbEllipsis.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/breadcrumb/BreadcrumbItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/breadcrumb/BreadcrumbLink.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/breadcrumb/BreadcrumbList.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/breadcrumb/BreadcrumbPage.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/breadcrumb/BreadcrumbSeparator.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/breadcrumb/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "collapsible",
+			"type": "registry:ui",
+			"title": "Collapsible",
+			"description": "An interactive component that can be expanded or collapsed to show or hide content.",
+			"dependencies": ["reka-ui"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/collapsible/Collapsible.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/collapsible/CollapsibleContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/collapsible/CollapsibleTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/collapsible/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "dropdown-menu",
+			"type": "registry:ui",
+			"title": "Dropdown Menu",
+			"description": "A menu component that displays a list of options when triggered.",
+			"dependencies": ["reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenu.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuCheckboxItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuLabel.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuRadioGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuRadioItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuSeparator.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuShortcut.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuSub.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuSubContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuSubTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/DropdownMenuTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dropdown-menu/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "input",
 			"type": "registry:ui",
 			"title": "Input",
@@ -141,6 +305,129 @@
 				},
 				{
 					"path": "registry/neobrutalism/ui/sheet/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "sidebar",
+			"type": "registry:ui",
+			"title": "Sidebar",
+			"description": "A composable and responsive sidebar component with collapsible behavior.",
+			"dependencies": ["reka-ui", "class-variance-authority", "@vueuse/core"],
+			"registryDependencies": ["utils", "sheet"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/sidebar/Sidebar.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarFooter.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarGroupAction.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarGroupContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarGroupLabel.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarHeader.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarInput.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarInset.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarMenu.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarMenuAction.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarMenuBadge.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarMenuButton.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarMenuItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarMenuSkeleton.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarMenuSub.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarMenuSubButton.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarMenuSubItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarProvider.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarRail.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/SidebarTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/index.ts",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sidebar/utils.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "skeleton",
+			"type": "registry:ui",
+			"title": "Skeleton",
+			"description": "A placeholder component for loading states with a pulsing animation.",
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/skeleton/Skeleton.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/skeleton/index.ts",
 					"type": "registry:component"
 				}
 			]

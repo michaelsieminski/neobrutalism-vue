@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { HTMLAttributes } from "vue";
 import { cn } from "@/lib/utils";
 
@@ -8,11 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <li
-    data-slot="sidebar-menu-sub-item"
-    data-sidebar="menu-sub-item"
-    :class="cn('group/menu-sub-item relative', props.class)"
-  >
+  <li :class="cn('inline-flex items-center gap-1.5', props.class)">
     <slot />
   </li>
 </template>

@@ -9,12 +9,7 @@ analytics.init(
 </script>
 
 <template>
-  <div class="flex flex-col w-screen h-screen overflow-hidden">
-    <Navigation />
-
-    <NuxtRouteAnnouncer />
-    <div class="w-full min-h-[calc(100dvh-5rem)] pt-[6rem]">
-      <NuxtPage />
-    </div>
-  </div>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>

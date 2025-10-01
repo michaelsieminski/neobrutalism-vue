@@ -6,7 +6,7 @@ import {
 	Tooltip,
 	TooltipContent,
 	TooltipTrigger,
-} from "@/registry/default/ui/tooltip";
+} from "@registry/neobrutalism/ui/tooltip";
 import SidebarMenuButtonChild from "./SidebarMenuButtonChild.vue";
 import { useSidebar } from "./utils";
 

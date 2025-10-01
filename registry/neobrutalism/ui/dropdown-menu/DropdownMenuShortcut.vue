@@ -8,11 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <li
-    data-slot="sidebar-menu-sub-item"
-    data-sidebar="menu-sub-item"
-    :class="cn('group/menu-sub-item relative', props.class)"
-  >
+  <span :class="cn('ml-auto text-xs font-base tracking-widest', props.class)">
     <slot />
-  </li>
+  </span>
 </template>

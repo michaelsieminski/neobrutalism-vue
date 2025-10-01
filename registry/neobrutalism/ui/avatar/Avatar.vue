@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue";
+import { AvatarRoot } from "reka-ui";
 import { cn } from "@/lib/utils";
-import { Separator } from "@/registry/default/ui/separator";
 
 const props = defineProps<{
 	class?: HTMLAttributes["class"];
@@ -9,10 +9,14 @@ const props = defineProps<{
 </script>
 
 <template>
-  <Separator
-    data-sidebar="separator"
-    :class="cn('mx-2 w-auto bg-sidebar-border', props.class)"
+  <AvatarRoot
+    :class="
+      cn(
+        'relative flex size-10 shrink-0 overflow-hidden rounded-full outline-2 outline-border',
+        props.class
+      )
+    "
   >
     <slot />
-  </Separator>
+  </AvatarRoot>
 </template>
