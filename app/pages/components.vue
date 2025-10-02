@@ -17,6 +17,18 @@ import ExampleSkeleton from "~/components/examples/ExampleSkeleton.vue";
 import ExampleTooltip from "~/components/examples/ExampleTooltip.vue";
 import ExampleSidebar from "../components/examples/ExampleSidebar/ExampleSidebar.vue";
 
+import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw";
+import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
+import ExampleBreadcrumbRaw from "~/components/examples/ExampleBreadcrumb.vue?raw";
+import ExampleButtonRaw from "~/components/examples/ExampleButton.vue?raw";
+import ExampleCollapsibleRaw from "~/components/examples/ExampleCollapsible.vue?raw";
+import ExampleDropdownMenuRaw from "~/components/examples/ExampleDropdownMenu.vue?raw";
+import ExampleInputRaw from "~/components/examples/ExampleInput.vue?raw";
+import ExampleLabelRaw from "~/components/examples/ExampleLabel.vue?raw";
+import ExampleSheetRaw from "~/components/examples/ExampleSheet.vue?raw";
+import ExampleSkeletonRaw from "~/components/examples/ExampleSkeleton.vue?raw";
+import ExampleTooltipRaw from "~/components/examples/ExampleTooltip.vue?raw";
+
 const route = useRoute();
 const router = useRouter();
 
@@ -76,15 +88,95 @@ const getExampleComponent = (name: string) => {
 	return exampleMap[name];
 };
 
+const getExampleComponentRaw = (name: string) => {
+	const exampleRawMap: Record<string, string> = {
+		accordion: ExampleAccordionRaw,
+		avatar: ExampleAvatarRaw,
+		breadcrumb: ExampleBreadcrumbRaw,
+		button: ExampleButtonRaw,
+		collapsible: ExampleCollapsibleRaw,
+		"dropdown-menu": ExampleDropdownMenuRaw,
+		input: ExampleInputRaw,
+		label: ExampleLabelRaw,
+		sheet: ExampleSheetRaw,
+		skeleton: ExampleSkeletonRaw,
+		tooltip: ExampleTooltipRaw,
+	};
+
+	return exampleRawMap[name];
+};
+
+const customUsageCodeExamples: Record<string, string> = {
+	sidebar: `<script setup lang="ts">
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarTrigger,
+} from "@registry/neobrutalism/ui/sidebar";
+<\/script>
+
+<template>
+  <SidebarProvider>
+    <Sidebar>
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton as-child>
+                  <a href="#">
+                    <span>Home</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton as-child>
+                  <a href="#">
+                    <span>Inbox</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton as-child>
+                  <a href="#">
+                    <span>Calendar</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+    </Sidebar>
+    <main>
+      <SidebarTrigger />
+      <!-- Your content here -->
+    </main>
+  </SidebarProvider>
+</template>`,
+};
+
 const getInstallCommand = (component: RegistryItem) => {
 	return `npx shadcn-vue@latest add https://neobrutalism-vue.com/r/${component.name}.json`;
 };
 
 const getUsageCode = (component: RegistryItem) => {
-	const mainFile = component.files.find((f) =>
-		f.path.includes(`/${component.name}/`),
-	);
-	if (!mainFile) return "";
+	if (customUsageCodeExamples[component.name]) {
+		return customUsageCodeExamples[component.name];
+	}
+
+	const rawCode = getExampleComponentRaw(component.name);
+	if (rawCode) {
+		return rawCode;
+	}
 
 	const importPath = `@registry/neobrutalism/ui/${component.name}`;
 	const componentNames = component.files
