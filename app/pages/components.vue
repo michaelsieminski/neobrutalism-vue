@@ -1,77 +1,221 @@
 <script setup lang="ts">
+import { ref, computed, onMounted } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import { Input } from "@registry/neobrutalism/ui/input";
+import { useRegistry, type RegistryItem } from "~/composables/useRegistry";
+
+import ExampleAccordion from "~/components/examples/ExampleAccordion.vue";
+import ExampleAvatar from "~/components/examples/ExampleAvatar.vue";
+import ExampleBreadcrumb from "~/components/examples/ExampleBreadcrumb.vue";
 import ExampleButton from "~/components/examples/ExampleButton.vue";
-import ExampleSheet from "~/components/examples/ExampleSheet.vue";
+import ExampleCollapsible from "~/components/examples/ExampleCollapsible.vue";
+import ExampleDropdownMenu from "~/components/examples/ExampleDropdownMenu.vue";
 import ExampleInput from "~/components/examples/ExampleInput.vue";
 import ExampleLabel from "~/components/examples/ExampleLabel.vue";
-import ExampleTooltip from "~/components/examples/ExampleTooltip.vue";
+import ExampleSheet from "~/components/examples/ExampleSheet.vue";
 import ExampleSkeleton from "~/components/examples/ExampleSkeleton.vue";
-import ExampleDropdownMenu from "~/components/examples/ExampleDropdownMenu.vue";
-import ExampleBreadcrumb from "~/components/examples/ExampleBreadcrumb.vue";
-import ExampleCollapsible from "~/components/examples/ExampleCollapsible.vue";
-import ExampleAvatar from "~/components/examples/ExampleAvatar.vue";
+import ExampleTooltip from "~/components/examples/ExampleTooltip.vue";
+import ExampleSidebar from "../components/examples/ExampleSidebar/ExampleSidebar.vue";
+
+const route = useRoute();
+const router = useRouter();
+
+const searchQuery = ref("");
+
+const { getComponents } = useRegistry();
+
+const components = computed(() => {
+	return getComponents();
+});
+
+const filteredComponents = computed(() => {
+	if (!searchQuery.value) return components.value;
+	const query = searchQuery.value.toLowerCase();
+	return components.value.filter(
+		(c: RegistryItem) =>
+			c.title.toLowerCase().includes(query) ||
+			c.name.toLowerCase().includes(query),
+	);
+});
+
+const selectedComponent = computed(() => {
+	const name = route.query.component as string;
+	if (!name) return components.value[0] || null;
+	return (
+		components.value.find((c: RegistryItem) => c.name === name) ||
+		components.value[0] ||
+		null
+	);
+});
+
+const selectComponent = (componentName: string) => {
+	router.push({ query: { component: componentName } });
+};
+
+onMounted(() => {
+	if (!route.query.component && components.value[0]) {
+		router.push({ query: { component: components.value[0].name } });
+	}
+});
+
+const getExampleComponent = (name: string) => {
+	const exampleMap: Record<string, any> = {
+		accordion: ExampleAccordion,
+		avatar: ExampleAvatar,
+		breadcrumb: ExampleBreadcrumb,
+		button: ExampleButton,
+		collapsible: ExampleCollapsible,
+		"dropdown-menu": ExampleDropdownMenu,
+		input: ExampleInput,
+		label: ExampleLabel,
+		sheet: ExampleSheet,
+		skeleton: ExampleSkeleton,
+		tooltip: ExampleTooltip,
+		sidebar: ExampleSidebar,
+	};
+	return exampleMap[name];
+};
+
+const getInstallCommand = (component: RegistryItem) => {
+	return `npx shadcn-vue@latest add https://neobrutalism-vue.com/r/${component.name}.json`;
+};
+
+const getUsageCode = (component: RegistryItem) => {
+	const mainFile = component.files.find((f) =>
+		f.path.includes(`/${component.name}/`),
+	);
+	if (!mainFile) return "";
+
+	const importPath = `@registry/neobrutalism/ui/${component.name}`;
+	const componentNames = component.files
+		.filter((f) => f.path.endsWith(".vue"))
+		.map((f) => {
+			const parts = f.path.split("/");
+			const fileName = parts[parts.length - 1];
+			return fileName ? fileName.replace(".vue", "") : "";
+		})
+		.filter((name) => name && !name.includes("index"));
+
+	return `<script setup lang="ts">
+import { ${componentNames.join(", ")} } from "${importPath}";
+<\/script>
+
+<template>
+  <!-- Your code here -->
+</template>`;
+};
 </script>
 
 <template>
-  <div class="flex flex-col gap-8">
-    <div class="flex flex-wrap gap-4">
-      <div class="w-96 h-fit p-2">
-        <h1 class="mb-2">Buttons</h1>
-        <ExampleButton />
-      </div>
+  <div class="flex h-full w-full">
+    <aside
+      class="w-64 border-r-4 border-black bg-white h-full overflow-y-auto sticky top-0"
+    >
+      <div class="p-4 border-b-4 border-black bg-main">
+        <NuxtLink to="/">
+          <h1 class="text-xl text-center mb-2">neobrutalism-vue</h1>
+        </NuxtLink>
 
-      <div class="w-96 h-fit p-2">
-        <h1 class="mb-2">Input</h1>
-        <ExampleInput />
-      </div>
-
-      <div class="w-96 h-fit p-2">
-        <h1 class="mb-2">Label</h1>
-        <ExampleLabel />
-      </div>
-
-      <div class="w-96 h-fit p-2">
-        <h1 class="mb-2">Sheet</h1>
-        <ExampleSheet />
-      </div>
-
-      <div class="w-96 h-fit p-2">
-        <h1 class="mb-2">Tooltip</h1>
-        <ExampleTooltip />
-      </div>
-
-      <div class="w-96 h-fit p-2">
-        <h1 class="mb-2">Skeleton</h1>
-        <ExampleSkeleton />
-      </div>
-
-      <div class="w-96 h-fit p-2">
-        <h1 class="mb-2">Dropdown Menu</h1>
-        <ExampleDropdownMenu />
-      </div>
-
-      <div class="w-96 h-fit p-2">
-        <h1 class="mb-2">Breadcrumb</h1>
-        <ExampleBreadcrumb />
-      </div>
-
-      <div class="w-96 h-fit p-2">
-        <h1 class="mb-2">Collapsible</h1>
-        <ExampleCollapsible />
-      </div>
-
-      <div class="w-96 h-fit p-2">
-        <h1 class="mb-2">Avatar</h1>
-        <ExampleAvatar />
-      </div>
-
-      <div class="w-full max-w-6xl h-[40rem] p-2">
-        <h1 class="mb-2">Sidebar</h1>
-        <iframe
-          src="/block-renderer?block=sidebar"
-          class="w-full h-full border-0"
-          title="Sidebar Example"
+        <Input
+          v-model="searchQuery"
+          type="search"
+          placeholder="Search..."
+          class="w-full"
         />
       </div>
-    </div>
+
+      <nav class="p-4">
+        <ul class="space-y-2">
+          <li v-for="component in filteredComponents" :key="component.name">
+            <button
+              @click="selectComponent(component.name)"
+              :class="[
+                'w-full text-left px-4 py-3 rounded-md border-2 border-black transition-all',
+                selectedComponent?.name === component.name
+                  ? 'bg-main translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -ml-1'
+                  : 'bg-white hover:bg-gray-50 hover:translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]',
+              ]"
+            >
+              <span class="font-semibold">{{ component.title }}</span>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto h-screen">
+      <div class="max-w-5xl ml-8 p-5" v-if="selectedComponent">
+        <div class="mb-6">
+          <h1 class="text-3xl font-bold font-title mb-2">
+            {{ selectedComponent.title }}
+          </h1>
+          <p class="text-lg">
+            {{ selectedComponent.description }}
+          </p>
+        </div>
+
+        <section class="mb-6">
+          <div class="border-4 border-black p-5 bg-white rounded-base">
+            <component
+              :is="getExampleComponent(selectedComponent.name)"
+              v-if="getExampleComponent(selectedComponent.name)"
+            />
+            <div v-else class="text-black">Preview could not be loaded</div>
+          </div>
+        </section>
+
+        <section class="mb-6">
+          <div class="border-4 border-black p-5 bg-white rounded-base">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+              Usage
+            </h2>
+            <pre
+              class="bg-black text-gray-100 p-6 rounded-lg overflow-x-auto border-4 border-black"
+            ><code>{{ getUsageCode(selectedComponent) }}</code></pre>
+          </div>
+        </section>
+
+        <section class="mb-6">
+          <div class="border-4 border-black p-5 bg-white rounded-base">
+            <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+              Installation
+            </h2>
+            <div class="bg-black text-gray-100 p-5 rounded-lg font-mono">
+              <code>{{ getInstallCommand(selectedComponent) }}</code>
+            </div>
+
+            <div v-if="selectedComponent.dependencies?.length" class="mt-6">
+              <h3 class="font-bold mb-3 text-lg">Dependencies:</h3>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="dep in selectedComponent.dependencies"
+                  :key="dep"
+                  class="px-3 py-1 bg-white border-2 border-black rounded text-sm font-mono"
+                >
+                  {{ dep }}
+                </span>
+              </div>
+            </div>
+
+            <div
+              v-if="selectedComponent.registryDependencies?.length"
+              class="mt-4"
+            >
+              <h3 class="font-bold mb-3 text-lg">Registry Dependencies:</h3>
+              <div class="flex flex-wrap gap-2">
+                <button
+                  v-for="dep in selectedComponent.registryDependencies"
+                  :key="dep"
+                  @click="selectComponent(dep)"
+                  class="px-3 py-1 bg-main border-2 border-black rounded text-sm font-mono hover:bg-main/50 transition-colors"
+                >
+                  {{ dep }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
   </div>
 </template>
