@@ -3,6 +3,7 @@ import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { Input } from "@registry/neobrutalism/ui/input";
 import { useRegistry, type RegistryItem } from "~/composables/useRegistry";
+import CodeBlock from "~/components/CodeBlock.vue";
 
 import ExampleAccordion from "~/components/examples/ExampleAccordion.vue";
 import ExampleAvatar from "~/components/examples/ExampleAvatar.vue";
@@ -58,6 +59,12 @@ const selectedComponent = computed(() => {
 		components.value[0] ||
 		null
 	);
+});
+
+useHead({
+	title: computed(() =>
+		selectedComponent.value ? selectedComponent.value.title : "Components",
+	),
 });
 
 const selectComponent = (componentName: string) => {
@@ -261,9 +268,10 @@ import { ${componentNames.join(", ")} } from "${importPath}";
             <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
               Usage
             </h2>
-            <pre
-              class="bg-black text-gray-100 p-6 rounded-lg overflow-x-auto border-4 border-black"
-            ><code>{{ getUsageCode(selectedComponent) }}</code></pre>
+            <CodeBlock
+              :code="getUsageCode(selectedComponent) || ''"
+              language="vue"
+            />
           </div>
         </section>
 
@@ -272,9 +280,10 @@ import { ${componentNames.join(", ")} } from "${importPath}";
             <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
               Installation
             </h2>
-            <div class="bg-black text-gray-100 p-5 rounded-lg font-mono">
-              <code>{{ getInstallCommand(selectedComponent) }}</code>
-            </div>
+            <CodeBlock
+              :code="getInstallCommand(selectedComponent)"
+              language="bash"
+            />
 
             <div v-if="selectedComponent.dependencies?.length" class="mt-6">
               <h3 class="font-bold mb-3 text-lg">Dependencies:</h3>

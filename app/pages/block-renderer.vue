@@ -17,6 +17,15 @@ const components = {
 const CurrentBlock = computed(() => {
 	return block.value && components[block.value as keyof typeof components];
 });
+
+useHead({
+	title: computed(() => {
+		const blockName = block.value;
+		return blockName
+			? `${blockName.charAt(0).toUpperCase() + blockName.slice(1)} Block`
+			: "Block Renderer";
+	}),
+});
 </script>
 
 <template>
