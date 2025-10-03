@@ -166,6 +166,24 @@
 			]
 		},
 		{
+			"name": "badge",
+			"type": "registry:ui",
+			"title": "Badge",
+			"description": "A small status indicator component for displaying labels or metadata.",
+			"dependencies": ["class-variance-authority"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/badge/Badge.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/badge/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "breadcrumb",
 			"type": "registry:ui",
 			"title": "Breadcrumb",
@@ -221,6 +239,68 @@
 				},
 				{
 					"path": "registry/neobrutalism/ui/button/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "calendar",
+			"type": "registry:ui",
+			"title": "Calendar",
+			"description": "A date picker component with neobrutalism styling for selecting dates.",
+			"dependencies": ["reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/calendar/Calendar.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarCell.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarCellTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarGrid.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarGridBody.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarGridHead.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarGridRow.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarHeadCell.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarHeader.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarHeading.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarNextButton.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/CalendarPrevButton.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/calendar/index.ts",
 					"type": "registry:component"
 				}
 			]

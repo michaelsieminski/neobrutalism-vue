@@ -26,6 +26,7 @@ import ExampleAccordion from "~/components/examples/ExampleAccordion.vue";
 import ExampleAvatar from "~/components/examples/ExampleAvatar.vue";
 import ExampleBreadcrumb from "~/components/examples/ExampleBreadcrumb.vue";
 import ExampleButton from "~/components/examples/ExampleButton.vue";
+import ExampleCalendar from "~/components/examples/ExampleCalendar.vue";
 import ExampleCollapsible from "~/components/examples/ExampleCollapsible.vue";
 import ExampleDropdownMenu from "~/components/examples/ExampleDropdownMenu.vue";
 import ExampleInput from "~/components/examples/ExampleInput.vue";
@@ -40,11 +41,13 @@ import ExampleTabs from "~/components/examples/ExampleTabs.vue";
 import ExampleAlert from "~/components/examples/ExampleAlert.vue";
 import ExampleAlertDialog from "~/components/examples/ExampleAlertDialog.vue";
 import ExampleScrollArea from "~/components/examples/ExampleScrollArea.vue";
+import ExampleBadge from "~/components/examples/ExampleBadge.vue";
 
 import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw";
 import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
 import ExampleBreadcrumbRaw from "~/components/examples/ExampleBreadcrumb.vue?raw";
 import ExampleButtonRaw from "~/components/examples/ExampleButton.vue?raw";
+import ExampleCalendarRaw from "~/components/examples/ExampleCalendar.vue?raw";
 import ExampleCollapsibleRaw from "~/components/examples/ExampleCollapsible.vue?raw";
 import ExampleDropdownMenuRaw from "~/components/examples/ExampleDropdownMenu.vue?raw";
 import ExampleInputRaw from "~/components/examples/ExampleInput.vue?raw";
@@ -59,6 +62,7 @@ import ExampleAlertRaw from "~/components/examples/ExampleAlert.vue?raw";
 import ExampleSidebarUsageRaw from "../components/examples/ExampleSidebar/ExampleSidebarUsage.vue?raw";
 import ExampleAlertDialogRaw from "~/components/examples/ExampleAlertDialog.vue?raw";
 import ExampleScrollAreaRaw from "~/components/examples/ExampleScrollArea.vue?raw";
+import ExampleBadgeRaw from "~/components/examples/ExampleBadge.vue?raw";
 
 const route = useRoute();
 const router = useRouter();
@@ -114,6 +118,7 @@ const getExampleComponent = (name: string) => {
 		avatar: ExampleAvatar,
 		breadcrumb: ExampleBreadcrumb,
 		button: ExampleButton,
+		calendar: ExampleCalendar,
 		collapsible: ExampleCollapsible,
 		"dropdown-menu": ExampleDropdownMenu,
 		input: ExampleInput,
@@ -128,6 +133,7 @@ const getExampleComponent = (name: string) => {
 		alert: ExampleAlert,
 		"alert-dialog": ExampleAlertDialog,
 		"scroll-area": ExampleScrollArea,
+		badge: ExampleBadge,
 	};
 	return exampleMap[name];
 };
@@ -138,6 +144,7 @@ const getExampleComponentRaw = (name: string) => {
 		avatar: ExampleAvatarRaw,
 		breadcrumb: ExampleBreadcrumbRaw,
 		button: ExampleButtonRaw,
+		calendar: ExampleCalendarRaw,
 		collapsible: ExampleCollapsibleRaw,
 		"dropdown-menu": ExampleDropdownMenuRaw,
 		input: ExampleInputRaw,
@@ -152,6 +159,7 @@ const getExampleComponentRaw = (name: string) => {
 		sidebar: ExampleSidebarUsageRaw,
 		"alert-dialog": ExampleAlertDialogRaw,
 		"scroll-area": ExampleScrollAreaRaw,
+		badge: ExampleBadgeRaw,
 	};
 
 	return exampleRawMap[name];
@@ -250,7 +258,7 @@ const getUsageCode = (component: RegistryItem) => {
 
         <section class="mb-6 lg:mb-8">
           <div
-            class="border-4 border-black p-4 sm:p-5 bg-white rounded-base overflow-x-auto"
+            class="border-4 border-black p-4 sm:p-5 bg-white rounded-base overflow-x-auto flex items-center justify-center"
           >
             <component
               :is="getExampleComponent(selectedComponent.name)"
