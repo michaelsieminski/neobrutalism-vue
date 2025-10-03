@@ -27,6 +27,7 @@ import ExampleAvatar from "~/components/examples/ExampleAvatar.vue";
 import ExampleBreadcrumb from "~/components/examples/ExampleBreadcrumb.vue";
 import ExampleButton from "~/components/examples/ExampleButton.vue";
 import ExampleCalendar from "~/components/examples/ExampleCalendar.vue";
+import ExampleCarousel from "~/components/examples/ExampleCarousel.vue";
 import ExampleCollapsible from "~/components/examples/ExampleCollapsible.vue";
 import ExampleDropdownMenu from "~/components/examples/ExampleDropdownMenu.vue";
 import ExampleInput from "~/components/examples/ExampleInput.vue";
@@ -48,6 +49,7 @@ import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
 import ExampleBreadcrumbRaw from "~/components/examples/ExampleBreadcrumb.vue?raw";
 import ExampleButtonRaw from "~/components/examples/ExampleButton.vue?raw";
 import ExampleCalendarRaw from "~/components/examples/ExampleCalendar.vue?raw";
+import ExampleCarouselRaw from "~/components/examples/ExampleCarousel.vue?raw";
 import ExampleCollapsibleRaw from "~/components/examples/ExampleCollapsible.vue?raw";
 import ExampleDropdownMenuRaw from "~/components/examples/ExampleDropdownMenu.vue?raw";
 import ExampleInputRaw from "~/components/examples/ExampleInput.vue?raw";
@@ -119,6 +121,7 @@ const getExampleComponent = (name: string) => {
 		breadcrumb: ExampleBreadcrumb,
 		button: ExampleButton,
 		calendar: ExampleCalendar,
+		carousel: ExampleCarousel,
 		collapsible: ExampleCollapsible,
 		"dropdown-menu": ExampleDropdownMenu,
 		input: ExampleInput,
@@ -145,6 +148,7 @@ const getExampleComponentRaw = (name: string) => {
 		breadcrumb: ExampleBreadcrumbRaw,
 		button: ExampleButtonRaw,
 		calendar: ExampleCalendarRaw,
+		carousel: ExampleCarouselRaw,
 		collapsible: ExampleCollapsibleRaw,
 		"dropdown-menu": ExampleDropdownMenuRaw,
 		input: ExampleInputRaw,

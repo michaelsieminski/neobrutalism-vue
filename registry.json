@@ -306,6 +306,48 @@
 			]
 		},
 		{
+			"name": "carousel",
+			"type": "registry:ui",
+			"title": "Carousel",
+			"description": "A carousel component for cycling through elements with neobrutalism styling.",
+			"dependencies": ["embla-carousel-vue", "@vueuse/core"],
+			"registryDependencies": ["utils", "button"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/carousel/Carousel.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/carousel/CarouselContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/carousel/CarouselItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/carousel/CarouselNext.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/carousel/CarouselPrevious.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/carousel/index.ts",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/carousel/interface.ts",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/carousel/useCarousel.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "card",
 			"type": "registry:ui",
 			"title": "Card",

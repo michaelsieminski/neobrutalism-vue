@@ -40,6 +40,7 @@
 		"@vueuse/core": "13.9.0",
 		"class-variance-authority": "0.7.1",
 		"clsx": "2.1.1",
+		"embla-carousel-vue": "8.6.0",
 		"lucide-vue-next": "0.544.0",
 		"nuxt": "4.1.2",
 		"pinia": "^3.0.3",
