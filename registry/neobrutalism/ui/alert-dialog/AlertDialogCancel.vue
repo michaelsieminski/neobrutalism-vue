@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/registry/neobrutalism/ui/button";
 
 const props = defineProps<
-  AlertDialogCancelProps & { class?: HTMLAttributes["class"] }
+	AlertDialogCancelProps & { class?: HTMLAttributes["class"] }
 >();
 
 const delegatedProps = reactiveOmit(props, "class");

@@ -441,6 +441,28 @@
 			]
 		},
 		{
+			"name": "scroll-area",
+			"type": "registry:ui",
+			"title": "Scroll Area",
+			"description": "A customizable scrollable area with styled scrollbars.",
+			"dependencies": ["reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/scroll-area/ScrollArea.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/scroll-area/ScrollBar.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/scroll-area/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "select",
 			"type": "registry:ui",
 			"title": "Select",

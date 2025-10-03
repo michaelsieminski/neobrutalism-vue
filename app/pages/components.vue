@@ -3,15 +3,15 @@ import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { Button } from "@registry/neobrutalism/ui/button";
 import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
+	Sheet,
+	SheetContent,
+	SheetTrigger,
 } from "@registry/neobrutalism/ui/sheet";
 import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger,
 } from "@registry/neobrutalism/ui/tabs";
 import { Menu } from "lucide-vue-next";
 import { useRegistry, type RegistryItem } from "~/composables/useRegistry";
@@ -38,6 +38,7 @@ import ExampleCard from "~/components/examples/ExampleCard.vue";
 import ExampleTabs from "~/components/examples/ExampleTabs.vue";
 import ExampleAlert from "~/components/examples/ExampleAlert.vue";
 import ExampleAlertDialog from "~/components/examples/ExampleAlertDialog.vue";
+import ExampleScrollArea from "~/components/examples/ExampleScrollArea.vue";
 
 import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw";
 import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
@@ -56,6 +57,7 @@ import ExampleTabsRaw from "~/components/examples/ExampleTabs.vue?raw";
 import ExampleAlertRaw from "~/components/examples/ExampleAlert.vue?raw";
 import ExampleSidebarUsageRaw from "../components/examples/ExampleSidebar/ExampleSidebarUsage.vue?raw";
 import ExampleAlertDialogRaw from "~/components/examples/ExampleAlertDialog.vue?raw";
+import ExampleScrollAreaRaw from "~/components/examples/ExampleScrollArea.vue?raw";
 
 const route = useRoute();
 const router = useRouter();
@@ -65,106 +67,108 @@ const searchQuery = ref("");
 const { getComponents } = useRegistry();
 
 const components = computed(() => {
-  return getComponents();
+	return getComponents();
 });
 
 const filteredComponents = computed(() => {
-  if (!searchQuery.value) return components.value;
-  const query = searchQuery.value.toLowerCase();
-  return components.value.filter(
-    (c: RegistryItem) =>
-      c.title.toLowerCase().includes(query) ||
-      c.name.toLowerCase().includes(query)
-  );
+	if (!searchQuery.value) return components.value;
+	const query = searchQuery.value.toLowerCase();
+	return components.value.filter(
+		(c: RegistryItem) =>
+			c.title.toLowerCase().includes(query) ||
+			c.name.toLowerCase().includes(query),
+	);
 });
 
 const selectedComponent = computed(() => {
-  const name = route.query.component as string;
-  if (!name) return components.value[0] || null;
-  return (
-    components.value.find((c: RegistryItem) => c.name === name) ||
-    components.value[0] ||
-    null
-  );
+	const name = route.query.component as string;
+	if (!name) return components.value[0] || null;
+	return (
+		components.value.find((c: RegistryItem) => c.name === name) ||
+		components.value[0] ||
+		null
+	);
 });
 
 useHead({
-  title: computed(() =>
-    selectedComponent.value ? selectedComponent.value.title : "Components"
-  ),
+	title: computed(() =>
+		selectedComponent.value ? selectedComponent.value.title : "Components",
+	),
 });
 
 const selectComponent = (componentName: string) => {
-  router.push({ query: { component: componentName } });
-  isMobileMenuOpen.value = false;
+	router.push({ query: { component: componentName } });
+	isMobileMenuOpen.value = false;
 };
 
 onMounted(() => {
-  if (!route.query.component && components.value[0]) {
-    router.push({ query: { component: components.value[0].name } });
-  }
+	if (!route.query.component && components.value[0]) {
+		router.push({ query: { component: components.value[0].name } });
+	}
 });
 
 const getExampleComponent = (name: string) => {
-  const exampleMap: Record<string, any> = {
-    accordion: ExampleAccordion,
-    avatar: ExampleAvatar,
-    breadcrumb: ExampleBreadcrumb,
-    button: ExampleButton,
-    collapsible: ExampleCollapsible,
-    "dropdown-menu": ExampleDropdownMenu,
-    input: ExampleInput,
-    label: ExampleLabel,
-    sheet: ExampleSheet,
-    skeleton: ExampleSkeleton,
-    tooltip: ExampleTooltip,
-    sidebar: ExampleSidebar,
-    select: ExampleSelect,
-    card: ExampleCard,
-    tabs: ExampleTabs,
-    alert: ExampleAlert,
-    "alert-dialog": ExampleAlertDialog,
-  };
-  return exampleMap[name];
+	const exampleMap: Record<string, any> = {
+		accordion: ExampleAccordion,
+		avatar: ExampleAvatar,
+		breadcrumb: ExampleBreadcrumb,
+		button: ExampleButton,
+		collapsible: ExampleCollapsible,
+		"dropdown-menu": ExampleDropdownMenu,
+		input: ExampleInput,
+		label: ExampleLabel,
+		sheet: ExampleSheet,
+		skeleton: ExampleSkeleton,
+		tooltip: ExampleTooltip,
+		sidebar: ExampleSidebar,
+		select: ExampleSelect,
+		card: ExampleCard,
+		tabs: ExampleTabs,
+		alert: ExampleAlert,
+		"alert-dialog": ExampleAlertDialog,
+		"scroll-area": ExampleScrollArea,
+	};
+	return exampleMap[name];
 };
 
 const getExampleComponentRaw = (name: string) => {
-  const exampleRawMap: Record<string, string> = {
-    accordion: ExampleAccordionRaw,
-    avatar: ExampleAvatarRaw,
-    breadcrumb: ExampleBreadcrumbRaw,
-    button: ExampleButtonRaw,
-    collapsible: ExampleCollapsibleRaw,
-    "dropdown-menu": ExampleDropdownMenuRaw,
-    input: ExampleInputRaw,
-    label: ExampleLabelRaw,
-    sheet: ExampleSheetRaw,
-    skeleton: ExampleSkeletonRaw,
-    tooltip: ExampleTooltipRaw,
-    select: ExampleSelectRaw,
-    card: ExampleCardRaw,
-    tabs: ExampleTabsRaw,
-    alert: ExampleAlertRaw,
-    sidebar: ExampleSidebarUsageRaw,
-    "alert-dialog": ExampleAlertDialogRaw,
-  };
+	const exampleRawMap: Record<string, string> = {
+		accordion: ExampleAccordionRaw,
+		avatar: ExampleAvatarRaw,
+		breadcrumb: ExampleBreadcrumbRaw,
+		button: ExampleButtonRaw,
+		collapsible: ExampleCollapsibleRaw,
+		"dropdown-menu": ExampleDropdownMenuRaw,
+		input: ExampleInputRaw,
+		label: ExampleLabelRaw,
+		sheet: ExampleSheetRaw,
+		skeleton: ExampleSkeletonRaw,
+		tooltip: ExampleTooltipRaw,
+		select: ExampleSelectRaw,
+		card: ExampleCardRaw,
+		tabs: ExampleTabsRaw,
+		alert: ExampleAlertRaw,
+		sidebar: ExampleSidebarUsageRaw,
+		"alert-dialog": ExampleAlertDialogRaw,
+		"scroll-area": ExampleScrollAreaRaw,
+	};
 
-  return exampleRawMap[name];
+	return exampleRawMap[name];
 };
 
 const getInstallCommands = (component: RegistryItem) => {
-  const url = `https://neobrutalism-vue.com/r/${component.name}.json`;
-  return {
-    npm: `npx shadcn-vue@latest add ${url}`,
-    pnpm: `pnpm dlx shadcn-vue@latest add ${url}`,
-    bun: `bunx shadcn-vue@latest add ${url}`,
-    yarn: `yarn dlx shadcn-vue@latest add ${url}`,
-  };
+	const url = `https://neobrutalism-vue.com/r/${component.name}.json`;
+	return {
+		npm: `npx shadcn-vue@latest add ${url}`,
+		pnpm: `pnpm dlx shadcn-vue@latest add ${url}`,
+		bun: `bunx shadcn-vue@latest add ${url}`,
+		yarn: `yarn dlx shadcn-vue@latest add ${url}`,
+	};
 };
 
 const getUsageCode = (component: RegistryItem) => {
-  const rawCode = getExampleComponentRaw(component.name);
-  return rawCode || "";
+	const rawCode = getExampleComponentRaw(component.name);
+	return rawCode || "";
 };
 </script>
 
