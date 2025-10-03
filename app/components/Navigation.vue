@@ -5,26 +5,26 @@ import { Puzzle, Github } from "lucide-vue-next";
 const stars = ref<string>("...");
 
 const formatStarCount = (count: number): string => {
-  if (count >= 1000) {
-    return `${(count / 1000).toFixed(1)}k`;
-  }
-  return count.toString();
+	if (count >= 1000) {
+		return `${(count / 1000).toFixed(1)}k`;
+	}
+	return count.toString();
 };
 
 const fetchGithubStars = async () => {
-  try {
-    const response = await fetch(
-      "https://api.github.com/repos/michaelsieminski/neobrutalism-vue"
-    );
-    const data = await response.json();
-    stars.value = formatStarCount(data.stargazers_count);
-  } catch (error) {
-    stars.value = "0";
-  }
+	try {
+		const response = await fetch(
+			"https://api.github.com/repos/michaelsieminski/neobrutalism-vue",
+		);
+		const data = await response.json();
+		stars.value = formatStarCount(data.stargazers_count);
+	} catch (error) {
+		stars.value = "0";
+	}
 };
 
 onMounted(() => {
-  fetchGithubStars();
+	fetchGithubStars();
 });
 </script>
 

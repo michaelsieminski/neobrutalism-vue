@@ -3,9 +3,9 @@ import { ref, computed, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { Button } from "@registry/neobrutalism/ui/button";
 import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
+	Sheet,
+	SheetContent,
+	SheetTrigger,
 } from "@registry/neobrutalism/ui/sheet";
 import { Menu } from "lucide-vue-next";
 import { useRegistry, type RegistryItem } from "~/composables/useRegistry";
@@ -46,84 +46,84 @@ const searchQuery = ref("");
 const { getComponents } = useRegistry();
 
 const components = computed(() => {
-  return getComponents();
+	return getComponents();
 });
 
 const filteredComponents = computed(() => {
-  if (!searchQuery.value) return components.value;
-  const query = searchQuery.value.toLowerCase();
-  return components.value.filter(
-    (c: RegistryItem) =>
-      c.title.toLowerCase().includes(query) ||
-      c.name.toLowerCase().includes(query)
-  );
+	if (!searchQuery.value) return components.value;
+	const query = searchQuery.value.toLowerCase();
+	return components.value.filter(
+		(c: RegistryItem) =>
+			c.title.toLowerCase().includes(query) ||
+			c.name.toLowerCase().includes(query),
+	);
 });
 
 const selectedComponent = computed(() => {
-  const name = route.query.component as string;
-  if (!name) return components.value[0] || null;
-  return (
-    components.value.find((c: RegistryItem) => c.name === name) ||
-    components.value[0] ||
-    null
-  );
+	const name = route.query.component as string;
+	if (!name) return components.value[0] || null;
+	return (
+		components.value.find((c: RegistryItem) => c.name === name) ||
+		components.value[0] ||
+		null
+	);
 });
 
 useHead({
-  title: computed(() =>
-    selectedComponent.value ? selectedComponent.value.title : "Components"
-  ),
+	title: computed(() =>
+		selectedComponent.value ? selectedComponent.value.title : "Components",
+	),
 });
 
 const selectComponent = (componentName: string) => {
-  router.push({ query: { component: componentName } });
-  isMobileMenuOpen.value = false;
+	router.push({ query: { component: componentName } });
+	isMobileMenuOpen.value = false;
 };
 
 onMounted(() => {
-  if (!route.query.component && components.value[0]) {
-    router.push({ query: { component: components.value[0].name } });
-  }
+	if (!route.query.component && components.value[0]) {
+		router.push({ query: { component: components.value[0].name } });
+	}
 });
 
 const getExampleComponent = (name: string) => {
-  const exampleMap: Record<string, any> = {
-    accordion: ExampleAccordion,
-    avatar: ExampleAvatar,
-    breadcrumb: ExampleBreadcrumb,
-    button: ExampleButton,
-    collapsible: ExampleCollapsible,
-    "dropdown-menu": ExampleDropdownMenu,
-    input: ExampleInput,
-    label: ExampleLabel,
-    sheet: ExampleSheet,
-    skeleton: ExampleSkeleton,
-    tooltip: ExampleTooltip,
-    sidebar: ExampleSidebar,
-  };
-  return exampleMap[name];
+	const exampleMap: Record<string, any> = {
+		accordion: ExampleAccordion,
+		avatar: ExampleAvatar,
+		breadcrumb: ExampleBreadcrumb,
+		button: ExampleButton,
+		collapsible: ExampleCollapsible,
+		"dropdown-menu": ExampleDropdownMenu,
+		input: ExampleInput,
+		label: ExampleLabel,
+		sheet: ExampleSheet,
+		skeleton: ExampleSkeleton,
+		tooltip: ExampleTooltip,
+		sidebar: ExampleSidebar,
+	};
+	return exampleMap[name];
 };
 
 const getExampleComponentRaw = (name: string) => {
-  const exampleRawMap: Record<string, string> = {
-    accordion: ExampleAccordionRaw,
-    avatar: ExampleAvatarRaw,
-    breadcrumb: ExampleBreadcrumbRaw,
-    button: ExampleButtonRaw,
-    collapsible: ExampleCollapsibleRaw,
-    "dropdown-menu": ExampleDropdownMenuRaw,
-    input: ExampleInputRaw,
-    label: ExampleLabelRaw,
-    sheet: ExampleSheetRaw,
-    skeleton: ExampleSkeletonRaw,
-    tooltip: ExampleTooltipRaw,
-  };
+	const exampleRawMap: Record<string, string> = {
+		accordion: ExampleAccordionRaw,
+		avatar: ExampleAvatarRaw,
+		breadcrumb: ExampleBreadcrumbRaw,
+		button: ExampleButtonRaw,
+		collapsible: ExampleCollapsibleRaw,
+		"dropdown-menu": ExampleDropdownMenuRaw,
+		input: ExampleInputRaw,
+		label: ExampleLabelRaw,
+		sheet: ExampleSheetRaw,
+		skeleton: ExampleSkeletonRaw,
+		tooltip: ExampleTooltipRaw,
+	};
 
-  return exampleRawMap[name];
+	return exampleRawMap[name];
 };
 
 const customUsageCodeExamples: Record<string, string> = {
-  sidebar: `<script setup lang="ts">
+	sidebar: `<script setup lang="ts">
 import {
   Sidebar,
   SidebarContent,
@@ -181,30 +181,30 @@ import {
 };
 
 const getInstallCommand = (component: RegistryItem) => {
-  return `npx shadcn-vue@latest add https://neobrutalism-vue.com/r/${component.name}.json`;
+	return `npx shadcn-vue@latest add https://neobrutalism-vue.com/r/${component.name}.json`;
 };
 
 const getUsageCode = (component: RegistryItem) => {
-  if (customUsageCodeExamples[component.name]) {
-    return customUsageCodeExamples[component.name];
-  }
+	if (customUsageCodeExamples[component.name]) {
+		return customUsageCodeExamples[component.name];
+	}
 
-  const rawCode = getExampleComponentRaw(component.name);
-  if (rawCode) {
-    return rawCode;
-  }
+	const rawCode = getExampleComponentRaw(component.name);
+	if (rawCode) {
+		return rawCode;
+	}
 
-  const importPath = `@registry/neobrutalism/ui/${component.name}`;
-  const componentNames = component.files
-    .filter((f) => f.path.endsWith(".vue"))
-    .map((f) => {
-      const parts = f.path.split("/");
-      const fileName = parts[parts.length - 1];
-      return fileName ? fileName.replace(".vue", "") : "";
-    })
-    .filter((name) => name && !name.includes("index"));
+	const importPath = `@registry/neobrutalism/ui/${component.name}`;
+	const componentNames = component.files
+		.filter((f) => f.path.endsWith(".vue"))
+		.map((f) => {
+			const parts = f.path.split("/");
+			const fileName = parts[parts.length - 1];
+			return fileName ? fileName.replace(".vue", "") : "";
+		})
+		.filter((name) => name && !name.includes("index"));
 
-  return `<script setup lang="ts">
+	return `<script setup lang="ts">
 import { ${componentNames.join(", ")} } from "${importPath}";
 <\/script>
 
