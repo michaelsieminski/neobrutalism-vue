@@ -503,6 +503,76 @@
 			]
 		},
 		{
+			"name": "context-menu",
+			"type": "registry:ui",
+			"title": "Context Menu",
+			"description": "A menu that appears upon right-click or long-press on an element, displaying context-specific actions.",
+			"dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenu.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuCheckboxItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuLabel.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuRadioGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuRadioItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuSeparator.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuShortcut.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuSub.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuSubContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuSubTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/ContextMenuTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/context-menu/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "collapsible",
 			"type": "registry:ui",
 			"title": "Collapsible",

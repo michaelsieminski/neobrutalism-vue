@@ -47,6 +47,7 @@ import ExampleCheckbox from "~/components/examples/ExampleCheckbox.vue";
 import ExampleCombobox from "~/components/examples/ExampleCombobox.vue";
 import ExampleDialog from "~/components/examples/ExampleDialog.vue";
 import ExampleCommand from "~/components/examples/ExampleCommand.vue";
+import ExampleContextMenu from "~/components/examples/ExampleContextMenu.vue";
 
 import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw";
 import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
@@ -73,6 +74,7 @@ import ExampleCheckboxRaw from "~/components/examples/ExampleCheckbox.vue?raw";
 import ExampleComboboxRaw from "~/components/examples/ExampleCombobox.vue?raw";
 import ExampleDialogRaw from "~/components/examples/ExampleDialog.vue?raw";
 import ExampleCommandRaw from "~/components/examples/ExampleCommand.vue?raw";
+import ExampleContextMenuRaw from "~/components/examples/ExampleContextMenu.vue?raw";
 
 const route = useRoute();
 const router = useRouter();
@@ -149,6 +151,7 @@ const getExampleComponent = (name: string) => {
 		combobox: ExampleCombobox,
 		dialog: ExampleDialog,
 		command: ExampleCommand,
+		"context-menu": ExampleContextMenu,
 	};
 	return exampleMap[name];
 };
@@ -180,6 +183,7 @@ const getExampleComponentRaw = (name: string) => {
 		combobox: ExampleComboboxRaw,
 		dialog: ExampleDialogRaw,
 		command: ExampleCommandRaw,
+		"context-menu": ExampleContextMenuRaw,
 	};
 
 	return exampleRawMap[name];
