@@ -30,7 +30,7 @@ onMounted(() => {
 
 <template>
   <nav
-    class="fixed top-2 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between overflow-hidden border border-border shadow-shadow gap-2 w-[calc(100%-1rem)] max-w-xl xl:max-w-3xl 2xl:max-w-5xl bg-main p-3 sm:p-4 rounded-base"
+    class="fixed top-2 left-1/2 -translate-x-1/2 z-50 flex items-center justify-between overflow-hidden border-2 border-border shadow-shadow gap-2 w-[calc(100%-1rem)] max-w-xl xl:max-w-3xl 2xl:max-w-5xl bg-main p-3 sm:p-4 rounded-base"
   >
     <NuxtLink to="/">
       <p

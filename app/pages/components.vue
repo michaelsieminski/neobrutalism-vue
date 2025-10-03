@@ -25,6 +25,9 @@ import ExampleSheet from "~/components/examples/ExampleSheet.vue";
 import ExampleSkeleton from "~/components/examples/ExampleSkeleton.vue";
 import ExampleTooltip from "~/components/examples/ExampleTooltip.vue";
 import ExampleSidebar from "../components/examples/ExampleSidebar/ExampleSidebar.vue";
+import ExampleSelect from "~/components/examples/ExampleSelect.vue";
+import ExampleCard from "~/components/examples/ExampleCard.vue";
+import ExampleTabs from "~/components/examples/ExampleTabs.vue";
 
 import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw";
 import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
@@ -37,6 +40,9 @@ import ExampleLabelRaw from "~/components/examples/ExampleLabel.vue?raw";
 import ExampleSheetRaw from "~/components/examples/ExampleSheet.vue?raw";
 import ExampleSkeletonRaw from "~/components/examples/ExampleSkeleton.vue?raw";
 import ExampleTooltipRaw from "~/components/examples/ExampleTooltip.vue?raw";
+import ExampleSelectRaw from "~/components/examples/ExampleSelect.vue?raw";
+import ExampleCardRaw from "~/components/examples/ExampleCard.vue?raw";
+import ExampleTabsRaw from "~/components/examples/ExampleTabs.vue?raw";
 
 const route = useRoute();
 const router = useRouter();
@@ -100,6 +106,9 @@ const getExampleComponent = (name: string) => {
 		skeleton: ExampleSkeleton,
 		tooltip: ExampleTooltip,
 		sidebar: ExampleSidebar,
+		select: ExampleSelect,
+		card: ExampleCard,
+		tabs: ExampleTabs,
 	};
 	return exampleMap[name];
 };
@@ -117,6 +126,9 @@ const getExampleComponentRaw = (name: string) => {
 		sheet: ExampleSheetRaw,
 		skeleton: ExampleSkeletonRaw,
 		tooltip: ExampleTooltipRaw,
+		select: ExampleSelectRaw,
+		card: ExampleCardRaw,
+		tabs: ExampleTabsRaw,
 	};
 
 	return exampleRawMap[name];

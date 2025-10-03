@@ -132,6 +132,61 @@
 			]
 		},
 		{
+			"name": "button",
+			"type": "registry:ui",
+			"title": "Button",
+			"description": "A clickable button component with neobrutalism styling and multiple variants.",
+			"dependencies": ["reka-ui", "class-variance-authority"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/button/Button.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/button/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "card",
+			"type": "registry:ui",
+			"title": "Card",
+			"description": "A container component for displaying content with header, title, description, content, and footer sections.",
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/card/Card.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/card/CardContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/card/CardDescription.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/card/CardFooter.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/card/CardHeader.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/card/CardTitle.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/card/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "collapsible",
 			"type": "registry:ui",
 			"title": "Collapsible",
@@ -310,6 +365,64 @@
 			]
 		},
 		{
+			"name": "select",
+			"type": "registry:ui",
+			"title": "Select",
+			"description": "A select component that allows users to choose from a list of options.",
+			"dependencies": ["reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/select/Select.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/SelectContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/SelectGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/SelectItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/SelectItemText.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/SelectLabel.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/SelectScrollDownButton.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/SelectScrollUpButton.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/SelectSeparator.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/SelectTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/SelectValue.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/select/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "sidebar",
 			"type": "registry:ui",
 			"title": "Sidebar",
@@ -428,6 +541,36 @@
 				},
 				{
 					"path": "registry/neobrutalism/ui/skeleton/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "tabs",
+			"type": "registry:ui",
+			"title": "Tabs",
+			"description": "A set of layered sections of content that are displayed one at a time.",
+			"dependencies": ["reka-ui"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/tabs/Tabs.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/tabs/TabsContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/tabs/TabsList.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/tabs/TabsTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/tabs/index.ts",
 					"type": "registry:component"
 				}
 			]
