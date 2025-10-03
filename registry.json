@@ -453,6 +453,56 @@
 			]
 		},
 		{
+			"name": "command",
+			"type": "registry:ui",
+			"title": "Command",
+			"description": "A fast and accessible command menu component with search and filtering capabilities.",
+			"dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
+			"registryDependencies": ["utils", "dialog"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/command/Command.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/command/CommandDialog.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/command/CommandEmpty.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/command/CommandGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/command/CommandInput.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/command/CommandItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/command/CommandList.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/command/CommandSeparator.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/command/CommandShortcut.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/command/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "collapsible",
 			"type": "registry:ui",
 			"title": "Collapsible",
@@ -474,6 +524,56 @@
 				},
 				{
 					"path": "registry/neobrutalism/ui/collapsible/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "dialog",
+			"type": "registry:ui",
+			"title": "Dialog",
+			"description": "A modal dialog component that overlays content and requires user interaction.",
+			"dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/dialog/Dialog.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dialog/DialogClose.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dialog/DialogContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dialog/DialogDescription.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dialog/DialogFooter.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dialog/DialogHeader.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dialog/DialogScrollContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dialog/DialogTitle.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dialog/DialogTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/dialog/index.ts",
 					"type": "registry:component"
 				}
 			]
