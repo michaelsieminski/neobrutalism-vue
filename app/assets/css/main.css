@@ -86,4 +86,12 @@
 	h6 {
 		@apply font-heading;
 	}
+
+	::selection {
+		@apply bg-main text-black;
+	}
+
+	::-moz-selection {
+		@apply bg-main text-black;
+	}
 }

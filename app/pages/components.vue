@@ -13,6 +13,7 @@ import {
 	TabsList,
 	TabsTrigger,
 } from "@registry/neobrutalism/ui/tabs";
+import { ScrollArea } from "@registry/neobrutalism/ui/scroll-area";
 import { Menu } from "lucide-vue-next";
 import { useRegistry, type RegistryItem } from "~/composables/useRegistry";
 import CodeBlock from "~/components/CodeBlock.vue";
@@ -175,29 +176,31 @@ const getUsageCode = (component: RegistryItem) => {
 <template>
   <div class="flex h-full w-full">
     <aside
-      class="hidden lg:block w-64 my-auto ml-2 border-4 rounded-base border-black bg-white max-h-[calc(100vh-1rem)] h-fit overflow-y-auto fixed top-1/2 -translate-y-1/2"
+      class="hidden lg:block w-64 my-auto ml-2 border-4 rounded-base border-black bg-white fixed top-1/2 -translate-y-1/2"
     >
-      <nav class="p-4">
-        <ul class="space-y-2">
-          <li v-for="component in filteredComponents" :key="component.name">
-            <button
-              @click="selectComponent(component.name)"
-              :class="[
-                'w-full text-left px-4 py-3 rounded-md border-2 border-black transition-all',
-                selectedComponent?.name === component.name
-                  ? 'bg-main translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -ml-1'
-                  : 'bg-white hover:bg-gray-50 hover:translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]',
-              ]"
-            >
-              <span class="font-semibold">{{ component.title }}</span>
-            </button>
-          </li>
-        </ul>
-      </nav>
+      <ScrollArea class="h-[calc(100vh-1rem)] max-h-[800px]">
+        <nav class="p-4">
+          <ul class="space-y-2">
+            <li v-for="component in filteredComponents" :key="component.name">
+              <button
+                @click="selectComponent(component.name)"
+                :class="[
+                  'w-full text-left px-4 py-3 rounded-md border-2 border-black transition-all',
+                  selectedComponent?.name === component.name
+                    ? 'bg-main translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -ml-1'
+                    : 'bg-white hover:bg-gray-50 hover:translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]',
+                ]"
+              >
+                <span class="font-semibold">{{ component.title }}</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </ScrollArea>
     </aside>
 
     <main
-      class="max-w-xl xl:max-w-3xl 2xl:max-w-5xl w-[calc(100%-1rem)] mx-auto h-screen pt-20 sm:pt-24"
+      class="max-w-xl xl:max-w-3xl 2xl:max-w-5xl w-[calc(100%-1rem)] mx-auto pt-20 sm:pt-24"
     >
       <div class="lg:hidden fixed top-5 left-6 z-50">
         <Sheet v-model:open="isMobileMenuOpen">
@@ -207,26 +210,28 @@ const getUsageCode = (component: RegistryItem) => {
             </Button>
           </SheetTrigger>
           <SheetContent side="left" class="w-[280px] sm:w-[320px] p-0">
-            <nav class="p-4 overflow-y-auto max-h-[calc(100vh-180px)] mt-12">
-              <ul class="space-y-2">
-                <li
-                  v-for="component in filteredComponents"
-                  :key="component.name"
-                >
-                  <button
-                    @click="selectComponent(component.name)"
-                    :class="[
-                      'w-full text-left px-4 py-3 rounded-md border-2 border-black transition-all',
-                      selectedComponent?.name === component.name
-                        ? 'bg-main translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -ml-1'
-                        : 'bg-white hover:bg-gray-50',
-                    ]"
+            <ScrollArea class="h-[calc(100vh-120px)] mt-12">
+              <nav class="p-4">
+                <ul class="space-y-2">
+                  <li
+                    v-for="component in filteredComponents"
+                    :key="component.name"
                   >
-                    <span class="font-semibold">{{ component.title }}</span>
-                  </button>
-                </li>
-              </ul>
-            </nav>
+                    <button
+                      @click="selectComponent(component.name)"
+                      :class="[
+                        'w-full text-left px-4 py-3 rounded-md border-2 border-black transition-all',
+                        selectedComponent?.name === component.name
+                          ? 'bg-main translate-x-1 -translate-y-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] -ml-1'
+                          : 'bg-white hover:bg-gray-50',
+                      ]"
+                    >
+                      <span class="font-semibold">{{ component.title }}</span>
+                    </button>
+                  </li>
+                </ul>
+              </nav>
+            </ScrollArea>
           </SheetContent>
         </Sheet>
       </div>
