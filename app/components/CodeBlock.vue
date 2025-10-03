@@ -3,6 +3,7 @@ import { ref, watchEffect } from "vue";
 import { codeToHtml } from "shiki";
 import { Copy, Check } from "lucide-vue-next";
 import { Button } from "@registry/neobrutalism/ui/button";
+import analytics from "roaarrr-browser";
 
 const props = defineProps<{
 	code: string;
@@ -25,6 +26,12 @@ const copyCode = async () => {
 	try {
 		await navigator.clipboard.writeText(props.code);
 		copied.value = true;
+
+		analytics.funnel("activation", {
+			action: "copy_code",
+			language: props.language || "vue",
+		});
+
 		setTimeout(() => {
 			copied.value = false;
 		}, 2000);

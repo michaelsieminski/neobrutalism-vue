@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Button } from "@registry/neobrutalism/ui/button";
-import Navigation from "~/components/Navigation.vue";
 
 useHead({
 	title: "Home",
