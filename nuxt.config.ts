@@ -16,6 +16,8 @@ export default defineNuxtConfig({
 		"@registry": registryPath,
 	},
 
+	modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt"],
+
 	vite: {
 		plugins: [tailwindcss()],
 	},

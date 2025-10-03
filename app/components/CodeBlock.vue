@@ -46,7 +46,7 @@ const copyCode = async () => {
     <Button
       @click="copyCode"
       variant="neutral"
-      class="absolute top-2 right-2 z-10 py-2 px-3 hover:translate-none"
+      class="absolute top-5 right-4 z-10 py-2 px-3 hover:translate-none"
     >
       <Check v-if="copied" class="w-4 h-4" />
       <Copy v-else class="w-4 h-4" />

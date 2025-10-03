@@ -7,11 +7,19 @@ import {
 	SheetContent,
 	SheetTrigger,
 } from "@registry/neobrutalism/ui/sheet";
+import {
+	Tabs,
+	TabsContent,
+	TabsList,
+	TabsTrigger,
+} from "@registry/neobrutalism/ui/tabs";
 import { Menu } from "lucide-vue-next";
 import { useRegistry, type RegistryItem } from "~/composables/useRegistry";
 import CodeBlock from "~/components/CodeBlock.vue";
+import { usePackageManagerStore } from "~/stores/packageManager";
 
 const isMobileMenuOpen = ref(false);
+const packageManagerStore = usePackageManagerStore();
 
 import ExampleAccordion from "~/components/examples/ExampleAccordion.vue";
 import ExampleAvatar from "~/components/examples/ExampleAvatar.vue";
@@ -192,8 +200,14 @@ import {
 </template>`,
 };
 
-const getInstallCommand = (component: RegistryItem) => {
-	return `npx shadcn-vue@latest add https://neobrutalism-vue.com/r/${component.name}.json`;
+const getInstallCommands = (component: RegistryItem) => {
+	const url = `https://neobrutalism-vue.com/r/${component.name}.json`;
+	return {
+		npm: `npx shadcn-vue@latest add ${url}`,
+		pnpm: `pnpm dlx shadcn-vue@latest add ${url}`,
+		bun: `bunx shadcn-vue@latest add ${url}`,
+		yarn: `yarn dlx shadcn-vue@latest add ${url}`,
+	};
 };
 
 const getUsageCode = (component: RegistryItem) => {
@@ -314,30 +328,40 @@ import { ${componentNames.join(", ")} } from "${importPath}";
             <h2
               class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2"
             >
-              Usage
-            </h2>
-            <div class="overflow-x-auto">
-              <CodeBlock
-                :code="getUsageCode(selectedComponent) || ''"
-                language="vue"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section class="mb-6 lg:mb-8">
-          <div class="border-4 border-black p-4 sm:p-5 bg-white rounded-base">
-            <h2
-              class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2"
-            >
               Installation
             </h2>
-            <div class="overflow-x-auto">
-              <CodeBlock
-                :code="getInstallCommand(selectedComponent)"
-                language="bash"
-              />
-            </div>
+            <Tabs v-model="packageManagerStore.selected" class="w-full">
+              <TabsList class="grid w-full grid-cols-4">
+                <TabsTrigger value="bun">bun</TabsTrigger>
+                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+                <TabsTrigger value="npm">npm</TabsTrigger>
+                <TabsTrigger value="yarn">yarn</TabsTrigger>
+              </TabsList>
+              <TabsContent value="bun">
+                <CodeBlock
+                  :code="getInstallCommands(selectedComponent).bun"
+                  language="bash"
+                />
+              </TabsContent>
+              <TabsContent value="pnpm">
+                <CodeBlock
+                  :code="getInstallCommands(selectedComponent).pnpm"
+                  language="bash"
+                />
+              </TabsContent>
+              <TabsContent value="npm">
+                <CodeBlock
+                  :code="getInstallCommands(selectedComponent).npm"
+                  language="bash"
+                />
+              </TabsContent>
+              <TabsContent value="yarn">
+                <CodeBlock
+                  :code="getInstallCommands(selectedComponent).yarn"
+                  language="bash"
+                />
+              </TabsContent>
+            </Tabs>
 
             <div
               v-if="selectedComponent.dependencies?.length"
@@ -372,6 +396,22 @@ import { ${componentNames.join(", ")} } from "${importPath}";
                   {{ dep }}
                 </button>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="mb-6 lg:mb-8">
+          <div class="border-4 border-black p-4 sm:p-5 bg-white rounded-base">
+            <h2
+              class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2"
+            >
+              Usage
+            </h2>
+            <div class="overflow-x-auto">
+              <CodeBlock
+                :code="getUsageCode(selectedComponent) || ''"
+                language="vue"
+              />
             </div>
           </div>
         </section>

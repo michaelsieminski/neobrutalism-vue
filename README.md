@@ -11,7 +11,7 @@
 Install components straight from the registry. For example:
 
 ```bash
-npx shadcn-vue@latest add component https://neobrutalism-vue.com/r/accordion.json
+npx shadcn-vue@latest add https://neobrutalism-vue.com/r/accordion.json
 ```
 
 ### Credits
