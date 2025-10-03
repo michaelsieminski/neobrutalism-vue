@@ -64,6 +64,82 @@
 			}
 		},
 		{
+			"name": "alert",
+			"type": "registry:ui",
+			"title": "Alert",
+			"description": "A component for displaying important messages, warnings, or information to users.",
+			"dependencies": ["class-variance-authority"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/alert/Alert.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert/AlertDescription.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert/AlertTitle.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "alert-dialog",
+			"type": "registry:ui",
+			"title": "Alert Dialog",
+			"description": "A modal dialog that interrupts the user with important content and expects a response.",
+			"dependencies": ["reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils", "button"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/alert-dialog/AlertDialog.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert-dialog/AlertDialogAction.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert-dialog/AlertDialogCancel.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert-dialog/AlertDialogContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert-dialog/AlertDialogDescription.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert-dialog/AlertDialogFooter.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert-dialog/AlertDialogHeader.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert-dialog/AlertDialogTitle.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert-dialog/AlertDialogTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/alert-dialog/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "avatar",
 			"type": "registry:ui",
 			"title": "Avatar",

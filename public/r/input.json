@@ -1,0 +1,25 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "input",
+  "type": "registry:ui",
+  "title": "Input",
+  "description": "A text input field component with neobrutalism styling.",
+  "dependencies": [
+    "@vueuse/core"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/neobrutalism/ui/input/Input.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\";\nimport { useVModel } from \"@vueuse/core\";\nimport { cn } from \"@/lib/utils\";\n\nconst props = defineProps<{\n\tdefaultValue?: string | number;\n\tmodelValue?: string | number;\n\tclass?: HTMLAttributes[\"class\"];\n}>();\n\nconst emits = defineEmits<{\n\t(e: \"update:modelValue\", payload: string | number): void;\n}>();\n\nconst modelValue = useVModel(props, \"modelValue\", emits, {\n\tpassive: true,\n\tdefaultValue: props.defaultValue,\n});\n</script>\n\n<template>\n  <input\n    v-model=\"modelValue\"\n    :class=\"\n      cn(\n        'flex h-10 w-full rounded-base border-2 border-border bg-secondary-background selection:bg-main selection:text-main-foreground px-3 py-2 text-sm font-base text-foreground file:border-0 file:bg-transparent file:text-sm file:font-heading placeholder:text-foreground/50 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',\n        props.class\n      )\n    \"\n  />\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/neobrutalism/ui/input/index.ts",
+      "content": "export { default as Input } from \"./Input.vue\";\n",
+      "type": "registry:component"
+    }
+  ]
+}

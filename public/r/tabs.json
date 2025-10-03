@@ -1,0 +1,40 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "tabs",
+  "type": "registry:ui",
+  "title": "Tabs",
+  "description": "A set of layered sections of content that are displayed one at a time.",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/neobrutalism/ui/tabs/Tabs.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TabsRootEmits, TabsRootProps } from \"reka-ui\";\nimport type { HTMLAttributes } from \"vue\";\nimport { TabsRoot, useForwardPropsEmits } from \"reka-ui\";\nimport { cn } from \"@/lib/utils\";\n\ninterface Props extends TabsRootProps {\n\tclass?: HTMLAttributes[\"class\"];\n}\n\nconst props = defineProps<Props>();\nconst emits = defineEmits<TabsRootEmits>();\n\nconst forwarded = useForwardPropsEmits(props, emits);\n</script>\n\n<template>\n  <TabsRoot v-bind=\"forwarded\" :class=\"cn('w-full', props.class)\">\n    <slot />\n  </TabsRoot>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/neobrutalism/ui/tabs/TabsContent.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TabsContentProps } from \"reka-ui\";\nimport type { HTMLAttributes } from \"vue\";\nimport { reactiveOmit } from \"@vueuse/core\";\nimport { TabsContent } from \"reka-ui\";\nimport { cn } from \"@/lib/utils\";\n\nconst props = defineProps<\n\tTabsContentProps & { class?: HTMLAttributes[\"class\"] }\n>();\n\nconst delegatedProps = reactiveOmit(props, \"class\");\n</script>\n\n<template>\n  <TabsContent\n    :class=\"\n      cn(\n        'mt-2 ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',\n        props.class\n      )\n    \"\n    v-bind=\"delegatedProps\"\n  >\n    <slot />\n  </TabsContent>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/neobrutalism/ui/tabs/TabsList.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TabsListProps } from \"reka-ui\";\nimport type { HTMLAttributes } from \"vue\";\nimport { reactiveOmit } from \"@vueuse/core\";\nimport { TabsList } from \"reka-ui\";\nimport { cn } from \"@/lib/utils\";\n\nconst props = defineProps<\n\tTabsListProps & { class?: HTMLAttributes[\"class\"] }\n>();\n\nconst delegatedProps = reactiveOmit(props, \"class\");\n</script>\n\n<template>\n  <TabsList\n    v-bind=\"delegatedProps\"\n    :class=\"\n      cn(\n        'inline-flex h-12 items-center justify-center rounded-base border-2 border-border bg-background p-1 text-foreground',\n        props.class\n      )\n    \"\n  >\n    <slot />\n  </TabsList>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/neobrutalism/ui/tabs/TabsTrigger.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { TabsTriggerProps } from \"reka-ui\";\nimport type { HTMLAttributes } from \"vue\";\nimport { reactiveOmit } from \"@vueuse/core\";\nimport { TabsTrigger, useForwardProps } from \"reka-ui\";\nimport { cn } from \"@/lib/utils\";\n\nconst props = defineProps<\n\tTabsTriggerProps & { class?: HTMLAttributes[\"class\"] }\n>();\n\nconst delegatedProps = reactiveOmit(props, \"class\");\n\nconst forwardedProps = useForwardProps(delegatedProps);\n</script>\n\n<template>\n  <TabsTrigger\n    v-bind=\"forwardedProps\"\n    :class=\"\n      cn(\n        'inline-flex items-center justify-center whitespace-nowrap rounded-base border-2 border-transparent px-2 py-1 gap-1.5 text-sm font-heading ring-offset-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:bg-main data-[state=active]:text-main-foreground data-[state=active]:border-border',\n        props.class\n      )\n    \"\n  >\n    <slot />\n  </TabsTrigger>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/neobrutalism/ui/tabs/index.ts",
+      "content": "export { default as Tabs } from \"./Tabs.vue\";\nexport { default as TabsContent } from \"./TabsContent.vue\";\nexport { default as TabsList } from \"./TabsList.vue\";\nexport { default as TabsTrigger } from \"./TabsTrigger.vue\";\n",
+      "type": "registry:component"
+    }
+  ]
+}

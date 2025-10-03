@@ -1,0 +1,35 @@
+{
+  "$schema": "https://shadcn-vue.com/schema/registry-item.json",
+  "name": "avatar",
+  "type": "registry:ui",
+  "title": "Avatar",
+  "description": "An image element with a fallback for representing a user or entity.",
+  "dependencies": [
+    "reka-ui"
+  ],
+  "registryDependencies": [
+    "utils"
+  ],
+  "files": [
+    {
+      "path": "registry/neobrutalism/ui/avatar/Avatar.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { HTMLAttributes } from \"vue\";\nimport { AvatarRoot } from \"reka-ui\";\nimport { cn } from \"@/lib/utils\";\n\nconst props = defineProps<{\n\tclass?: HTMLAttributes[\"class\"];\n}>();\n</script>\n\n<template>\n  <AvatarRoot\n    :class=\"\n      cn(\n        'relative flex size-10 shrink-0 overflow-hidden rounded-full outline-2 outline-border',\n        props.class\n      )\n    \"\n  >\n    <slot />\n  </AvatarRoot>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/neobrutalism/ui/avatar/AvatarFallback.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { AvatarFallbackProps } from \"reka-ui\";\nimport { AvatarFallback } from \"reka-ui\";\n\nconst props = defineProps<AvatarFallbackProps>();\n</script>\n\n<template>\n  <AvatarFallback\n    class=\"flex size-full items-center justify-center rounded-full bg-secondary-background text-foreground font-base\"\n    v-bind=\"props\"\n  >\n    <slot />\n  </AvatarFallback>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/neobrutalism/ui/avatar/AvatarImage.vue",
+      "content": "<script setup lang=\"ts\">\nimport type { AvatarImageProps } from \"reka-ui\";\nimport { AvatarImage } from \"reka-ui\";\n\nconst props = defineProps<AvatarImageProps>();\n</script>\n\n<template>\n  <AvatarImage v-bind=\"props\" class=\"aspect-square size-full\">\n    <slot />\n  </AvatarImage>\n</template>\n",
+      "type": "registry:component"
+    },
+    {
+      "path": "registry/neobrutalism/ui/avatar/index.ts",
+      "content": "export { default as Avatar } from \"./Avatar.vue\";\nexport { default as AvatarFallback } from \"./AvatarFallback.vue\";\nexport { default as AvatarImage } from \"./AvatarImage.vue\";\n",
+      "type": "registry:component"
+    }
+  ]
+}
