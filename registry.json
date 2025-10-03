@@ -385,6 +385,74 @@
 			]
 		},
 		{
+			"name": "checkbox",
+			"type": "registry:ui",
+			"title": "Checkbox",
+			"description": "A checkbox component that allows users to select or deselect options.",
+			"dependencies": ["reka-ui", "@vueuse/core", "lucide-vue-next"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/checkbox/Checkbox.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/checkbox/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
+			"name": "combobox",
+			"type": "registry:ui",
+			"title": "Combobox",
+			"description": "A searchable select component that combines a text input with a dropdown list of options.",
+			"dependencies": ["reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/combobox/Combobox.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/combobox/ComboboxAnchor.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/combobox/ComboboxEmpty.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/combobox/ComboboxGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/combobox/ComboboxInput.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/combobox/ComboboxItem.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/combobox/ComboboxList.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/combobox/ComboboxSeparator.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/combobox/ComboboxTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/combobox/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "collapsible",
 			"type": "registry:ui",
 			"title": "Collapsible",

@@ -43,6 +43,8 @@ import ExampleAlert from "~/components/examples/ExampleAlert.vue";
 import ExampleAlertDialog from "~/components/examples/ExampleAlertDialog.vue";
 import ExampleScrollArea from "~/components/examples/ExampleScrollArea.vue";
 import ExampleBadge from "~/components/examples/ExampleBadge.vue";
+import ExampleCheckbox from "~/components/examples/ExampleCheckbox.vue";
+import ExampleCombobox from "~/components/examples/ExampleCombobox.vue";
 
 import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw";
 import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
@@ -65,6 +67,8 @@ import ExampleSidebarUsageRaw from "../components/examples/ExampleSidebar/Exampl
 import ExampleAlertDialogRaw from "~/components/examples/ExampleAlertDialog.vue?raw";
 import ExampleScrollAreaRaw from "~/components/examples/ExampleScrollArea.vue?raw";
 import ExampleBadgeRaw from "~/components/examples/ExampleBadge.vue?raw";
+import ExampleCheckboxRaw from "~/components/examples/ExampleCheckbox.vue?raw";
+import ExampleComboboxRaw from "~/components/examples/ExampleCombobox.vue?raw";
 
 const route = useRoute();
 const router = useRouter();
@@ -137,6 +141,8 @@ const getExampleComponent = (name: string) => {
 		"alert-dialog": ExampleAlertDialog,
 		"scroll-area": ExampleScrollArea,
 		badge: ExampleBadge,
+		checkbox: ExampleCheckbox,
+		combobox: ExampleCombobox,
 	};
 	return exampleMap[name];
 };
@@ -164,6 +170,8 @@ const getExampleComponentRaw = (name: string) => {
 		"alert-dialog": ExampleAlertDialogRaw,
 		"scroll-area": ExampleScrollAreaRaw,
 		badge: ExampleBadgeRaw,
+		checkbox: ExampleCheckboxRaw,
+		combobox: ExampleComboboxRaw,
 	};
 
 	return exampleRawMap[name];
