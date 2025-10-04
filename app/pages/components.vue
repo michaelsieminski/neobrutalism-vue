@@ -16,8 +16,14 @@ import {
 import { ScrollArea } from "@registry/neobrutalism/ui/scroll-area";
 import { Menu } from "lucide-vue-next";
 import { useRegistry, type RegistryItem } from "~/composables/useRegistry";
+import {
+	useComponents,
+	isCustomComponent,
+	type ComponentItem,
+} from "~/composables/useComponents";
 import CodeBlock from "~/components/CodeBlock.vue";
 import { usePackageManagerStore } from "~/stores/packageManager";
+import "~/config/customComponents";
 
 const isMobileMenuOpen = ref(false);
 const packageManagerStore = usePackageManagerStore();
@@ -48,6 +54,7 @@ import ExampleCombobox from "~/components/examples/ExampleCombobox.vue";
 import ExampleDialog from "~/components/examples/ExampleDialog.vue";
 import ExampleCommand from "~/components/examples/ExampleCommand.vue";
 import ExampleContextMenu from "~/components/examples/ExampleContextMenu.vue";
+import ExampleTable from "~/components/examples/ExampleTable.vue";
 
 import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw";
 import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
@@ -75,13 +82,14 @@ import ExampleComboboxRaw from "~/components/examples/ExampleCombobox.vue?raw";
 import ExampleDialogRaw from "~/components/examples/ExampleDialog.vue?raw";
 import ExampleCommandRaw from "~/components/examples/ExampleCommand.vue?raw";
 import ExampleContextMenuRaw from "~/components/examples/ExampleContextMenu.vue?raw";
+import ExampleTableRaw from "~/components/examples/ExampleTable.vue?raw";
 
 const route = useRoute();
 const router = useRouter();
 
 const searchQuery = ref("");
 
-const { getComponents } = useRegistry();
+const { getComponents, getComponentByName } = useComponents();
 
 const components = computed(() => {
 	return getComponents();
@@ -91,7 +99,7 @@ const filteredComponents = computed(() => {
 	if (!searchQuery.value) return components.value;
 	const query = searchQuery.value.toLowerCase();
 	return components.value.filter(
-		(c: RegistryItem) =>
+		(c: ComponentItem) =>
 			c.title.toLowerCase().includes(query) ||
 			c.name.toLowerCase().includes(query),
 	);
@@ -100,11 +108,7 @@ const filteredComponents = computed(() => {
 const selectedComponent = computed(() => {
 	const name = route.query.component as string;
 	if (!name) return components.value[0] || null;
-	return (
-		components.value.find((c: RegistryItem) => c.name === name) ||
-		components.value[0] ||
-		null
-	);
+	return getComponentByName(name) || components.value[0] || null;
 });
 
 useHead({
@@ -124,7 +128,11 @@ onMounted(() => {
 	}
 });
 
-const getExampleComponent = (name: string) => {
+const getExampleComponent = (component: ComponentItem) => {
+	if (isCustomComponent(component)) {
+		return component.component;
+	}
+
 	const exampleMap: Record<string, any> = {
 		accordion: ExampleAccordion,
 		avatar: ExampleAvatar,
@@ -152,11 +160,16 @@ const getExampleComponent = (name: string) => {
 		dialog: ExampleDialog,
 		command: ExampleCommand,
 		"context-menu": ExampleContextMenu,
+		table: ExampleTable,
 	};
-	return exampleMap[name];
+	return exampleMap[component.name];
 };
 
-const getExampleComponentRaw = (name: string) => {
+const getExampleComponentRaw = (component: ComponentItem) => {
+	if (isCustomComponent(component)) {
+		return component.rawCode;
+	}
+
 	const exampleRawMap: Record<string, string> = {
 		accordion: ExampleAccordionRaw,
 		avatar: ExampleAvatarRaw,
@@ -184,13 +197,20 @@ const getExampleComponentRaw = (name: string) => {
 		dialog: ExampleDialogRaw,
 		command: ExampleCommandRaw,
 		"context-menu": ExampleContextMenuRaw,
+		table: ExampleTableRaw,
 	};
 
-	return exampleRawMap[name];
+	return exampleRawMap[component.name];
 };
 
-const getInstallCommands = (component: RegistryItem) => {
-	const url = `https://neobrutalism-vue.com/r/${component.name}.json`;
+const getInstallCommands = (component: ComponentItem) => {
+	const registryPath =
+		isCustomComponent(component) && component.registryPath
+			? component.registryPath
+			: component.name;
+
+	const url = `https://neobrutalism-vue.com/r/${registryPath}.json`;
+
 	return {
 		npm: `npx shadcn-vue@latest add ${url}`,
 		pnpm: `pnpm dlx shadcn-vue@latest add ${url}`,
@@ -199,8 +219,8 @@ const getInstallCommands = (component: RegistryItem) => {
 	};
 };
 
-const getUsageCode = (component: RegistryItem) => {
-	const rawCode = getExampleComponentRaw(component.name);
+const getUsageCode = (component: ComponentItem) => {
+	const rawCode = getExampleComponentRaw(component);
 	return rawCode || "";
 };
 </script>
@@ -285,14 +305,17 @@ const getUsageCode = (component: RegistryItem) => {
             class="border-4 border-black p-4 sm:p-5 bg-white rounded-base overflow-x-auto flex items-center justify-center"
           >
             <component
-              :is="getExampleComponent(selectedComponent.name)"
-              v-if="getExampleComponent(selectedComponent.name)"
+              :is="getExampleComponent(selectedComponent)"
+              v-if="getExampleComponent(selectedComponent)"
             />
             <div v-else class="text-black">Preview could not be loaded</div>
           </div>
         </section>
 
-        <section class="mb-6 lg:mb-8">
+        <section
+          class="mb-6 lg:mb-8"
+          v-if="getInstallCommands(selectedComponent)"
+        >
           <div class="border-4 border-black p-4 sm:p-5 bg-white rounded-base">
             <h2
               class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 flex items-center gap-2"
@@ -308,25 +331,25 @@ const getUsageCode = (component: RegistryItem) => {
               </TabsList>
               <TabsContent value="bun">
                 <CodeBlock
-                  :code="getInstallCommands(selectedComponent).bun"
+                  :code="getInstallCommands(selectedComponent)!.bun"
                   language="bash"
                 />
               </TabsContent>
               <TabsContent value="pnpm">
                 <CodeBlock
-                  :code="getInstallCommands(selectedComponent).pnpm"
+                  :code="getInstallCommands(selectedComponent)!.pnpm"
                   language="bash"
                 />
               </TabsContent>
               <TabsContent value="npm">
                 <CodeBlock
-                  :code="getInstallCommands(selectedComponent).npm"
+                  :code="getInstallCommands(selectedComponent)!.npm"
                   language="bash"
                 />
               </TabsContent>
               <TabsContent value="yarn">
                 <CodeBlock
-                  :code="getInstallCommands(selectedComponent).yarn"
+                  :code="getInstallCommands(selectedComponent)!.yarn"
                   language="bash"
                 />
               </TabsContent>

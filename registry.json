@@ -1034,6 +1034,56 @@
 			]
 		},
 		{
+			"name": "table",
+			"type": "registry:ui",
+			"title": "Table",
+			"description": "A component for displaying data in a structured tabular format with rows and columns.",
+			"dependencies": ["@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/table/Table.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/table/TableBody.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/table/TableCaption.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/table/TableCell.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/table/TableEmpty.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/table/TableFooter.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/table/TableHead.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/table/TableHeader.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/table/TableRow.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/table/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "tooltip",
 			"type": "registry:ui",
 			"title": "Tooltip",
