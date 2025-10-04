@@ -57,10 +57,10 @@ onMounted(() => {
         @click="searchOpen = true"
       >
         <Search class="w-4 h-4 sm:w-5 sm:h-5" />
-        <span class="hidden sm:inline">Search</span>
+        <span class="hidden xl:inline">Search</span>
         <kbd
           v-if="isMac"
-          class="hidden lg:inline-flex pointer-events-none h-6 select-none items-center gap-1 rounded border border-border bg-main text-text px-2 font-mono text-xs font-medium opacity-100"
+          class="hidden xl:inline-flex pointer-events-none h-6 select-none items-center gap-1 rounded border border-border bg-main text-text px-2 font-mono text-xs font-medium opacity-100"
         >
           <span class="text-sm">⌘</span>K
         </kbd>
@@ -72,7 +72,7 @@ onMounted(() => {
           class="text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-4"
         >
           <Puzzle class="w-4 h-4 sm:w-5 sm:h-5" />
-          <span class="hidden sm:inline">Components</span>
+          <span class="hidden xl:inline">Components</span>
         </Button>
       </NuxtLink>
 
@@ -86,7 +86,7 @@ onMounted(() => {
           class="text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-4"
         >
           <Github class="w-4 h-4 sm:w-5 sm:h-5" />
-          <span class="hidden sm:inline">{{ stars }}</span>
+          <span class="hidden xl:inline">{{ stars }}</span>
         </Button>
       </a>
 
