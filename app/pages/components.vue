@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, watch, nextTick } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { Button } from "@registry/neobrutalism/ui/button";
 import {
@@ -122,11 +122,46 @@ const selectComponent = (componentName: string) => {
 	isMobileMenuOpen.value = false;
 };
 
+const scrollToSelectedComponent = () => {
+	nextTick(() => {
+		const selectedButton = document.querySelector(
+			'button[data-selected="true"]',
+		);
+		if (selectedButton) {
+			selectedButton.scrollIntoView({
+				behavior: "smooth",
+				block: "center",
+			});
+		}
+	});
+};
+
+const scrollPageToTop = () => {
+	nextTick(() => {
+		const viewport = document.querySelector("[data-reka-scroll-area-viewport]");
+		if (viewport) {
+			viewport.scrollTo({
+				top: 0,
+				behavior: "smooth",
+			});
+		}
+	});
+};
+
 onMounted(() => {
 	if (!route.query.component && components.value[0]) {
 		router.push({ query: { component: components.value[0].name } });
 	}
+	scrollToSelectedComponent();
 });
+
+watch(
+	() => route.query.component,
+	() => {
+		scrollToSelectedComponent();
+		scrollPageToTop();
+	},
+);
 
 const getExampleComponent = (component: ComponentItem) => {
 	if (isCustomComponent(component)) {
@@ -236,6 +271,7 @@ const getUsageCode = (component: ComponentItem) => {
             <li v-for="component in filteredComponents" :key="component.name">
               <button
                 @click="selectComponent(component.name)"
+                :data-selected="selectedComponent?.name === component.name"
                 :class="[
                   'w-full text-left px-4 py-3 rounded-md border-2 border-black transition-all',
                   selectedComponent?.name === component.name
@@ -271,6 +307,9 @@ const getUsageCode = (component: ComponentItem) => {
                   >
                     <button
                       @click="selectComponent(component.name)"
+                      :data-selected="
+                        selectedComponent?.name === component.name
+                      "
                       :class="[
                         'w-full text-left px-4 py-3 rounded-md border-2 border-black transition-all',
                         selectedComponent?.name === component.name

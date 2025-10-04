@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import { Button } from "@registry/neobrutalism/ui/button";
-import { Puzzle, Github } from "lucide-vue-next";
+import { Puzzle, Github, Search } from "lucide-vue-next";
+import SearchCommand from "./SearchCommand.vue";
+
+const searchOpen = ref(false);
+
+const isMac = computed(() => {
+	if (import.meta.client) {
+		return navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+	}
+	return false;
+});
 
 const stars = ref<string>("...");
 
@@ -41,6 +51,21 @@ onMounted(() => {
     </NuxtLink>
 
     <div class="flex items-center gap-2">
+      <Button
+        variant="neutral"
+        class="text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-4 gap-2"
+        @click="searchOpen = true"
+      >
+        <Search class="w-4 h-4 sm:w-5 sm:h-5" />
+        <span class="hidden sm:inline">Search</span>
+        <kbd
+          v-if="isMac"
+          class="hidden lg:inline-flex pointer-events-none h-6 select-none items-center gap-1 rounded border border-border bg-main text-text px-2 font-mono text-xs font-medium opacity-100"
+        >
+          <span class="text-sm">⌘</span>K
+        </kbd>
+      </Button>
+
       <NuxtLink to="/components">
         <Button
           variant="neutral"
@@ -88,5 +113,7 @@ onMounted(() => {
         </Button>
       </a>
     </div>
+
+    <SearchCommand v-model="searchOpen" />
   </nav>
 </template>
