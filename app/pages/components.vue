@@ -38,6 +38,7 @@ import ExampleCollapsible from "~/components/examples/ExampleCollapsible.vue";
 import ExampleDropdownMenu from "~/components/examples/ExampleDropdownMenu.vue";
 import ExampleInput from "~/components/examples/ExampleInput.vue";
 import ExampleLabel from "~/components/examples/ExampleLabel.vue";
+import ExamplePopover from "~/components/examples/ExamplePopover.vue";
 import ExampleSheet from "~/components/examples/ExampleSheet.vue";
 import ExampleSkeleton from "~/components/examples/ExampleSkeleton.vue";
 import ExampleTooltip from "~/components/examples/ExampleTooltip.vue";
@@ -66,6 +67,7 @@ import ExampleCollapsibleRaw from "~/components/examples/ExampleCollapsible.vue?
 import ExampleDropdownMenuRaw from "~/components/examples/ExampleDropdownMenu.vue?raw";
 import ExampleInputRaw from "~/components/examples/ExampleInput.vue?raw";
 import ExampleLabelRaw from "~/components/examples/ExampleLabel.vue?raw";
+import ExamplePopoverRaw from "~/components/examples/ExamplePopover.vue?raw";
 import ExampleSheetRaw from "~/components/examples/ExampleSheet.vue?raw";
 import ExampleSkeletonRaw from "~/components/examples/ExampleSkeleton.vue?raw";
 import ExampleTooltipRaw from "~/components/examples/ExampleTooltip.vue?raw";
@@ -179,6 +181,7 @@ const getExampleComponent = (component: ComponentItem) => {
 		"dropdown-menu": ExampleDropdownMenu,
 		input: ExampleInput,
 		label: ExampleLabel,
+		popover: ExamplePopover,
 		sheet: ExampleSheet,
 		skeleton: ExampleSkeleton,
 		tooltip: ExampleTooltip,
@@ -216,6 +219,7 @@ const getExampleComponentRaw = (component: ComponentItem) => {
 		"dropdown-menu": ExampleDropdownMenuRaw,
 		input: ExampleInputRaw,
 		label: ExampleLabelRaw,
+		popover: ExamplePopoverRaw,
 		sheet: ExampleSheetRaw,
 		skeleton: ExampleSkeletonRaw,
 		tooltip: ExampleTooltipRaw,

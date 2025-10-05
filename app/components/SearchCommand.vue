@@ -55,8 +55,8 @@ onMounted(() => {
           :key="component.name"
           :value="component.title"
           @select="handleSelect(component.name)"
+          class="border border-transparent hover:border-border"
         >
-          <Search class="mr-2 h-4 w-4" />
           <span>{{ component.title }}</span>
         </CommandItem>
       </CommandGroup>

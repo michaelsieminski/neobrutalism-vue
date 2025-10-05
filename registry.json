@@ -755,6 +755,36 @@
 			]
 		},
 		{
+			"name": "popover",
+			"type": "registry:ui",
+			"title": "Popover",
+			"description": "A floating panel that appears above content, triggered by user interaction.",
+			"dependencies": ["reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/popover/Popover.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/popover/PopoverAnchor.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/popover/PopoverContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/popover/PopoverTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/popover/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "sheet",
 			"type": "registry:ui",
 			"title": "Sheet",
