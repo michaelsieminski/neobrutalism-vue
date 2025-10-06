@@ -244,6 +244,32 @@
 			]
 		},
 		{
+			"name": "button-group",
+			"type": "registry:ui",
+			"title": "Button Group",
+			"description": "A component for grouping related buttons and controls together with shared styling and layout.",
+			"dependencies": ["reka-ui", "@vueuse/core", "class-variance-authority"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/button-group/ButtonGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/button-group/ButtonGroupSeparator.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/button-group/ButtonGroupText.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/button-group/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "calendar",
 			"type": "registry:ui",
 			"title": "Calendar",

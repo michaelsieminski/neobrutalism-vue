@@ -32,6 +32,7 @@ import ExampleAccordion from "~/components/examples/ExampleAccordion.vue";
 import ExampleAvatar from "~/components/examples/ExampleAvatar.vue";
 import ExampleBreadcrumb from "~/components/examples/ExampleBreadcrumb.vue";
 import ExampleButton from "~/components/examples/ExampleButton.vue";
+import ExampleButtonGroup from "~/components/examples/ExampleButtonGroup.vue";
 import ExampleCalendar from "~/components/examples/ExampleCalendar.vue";
 import ExampleCarousel from "~/components/examples/ExampleCarousel.vue";
 import ExampleCollapsible from "~/components/examples/ExampleCollapsible.vue";
@@ -61,6 +62,7 @@ import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw"
 import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
 import ExampleBreadcrumbRaw from "~/components/examples/ExampleBreadcrumb.vue?raw";
 import ExampleButtonRaw from "~/components/examples/ExampleButton.vue?raw";
+import ExampleButtonGroupRaw from "~/components/examples/ExampleButtonGroup.vue?raw";
 import ExampleCalendarRaw from "~/components/examples/ExampleCalendar.vue?raw";
 import ExampleCarouselRaw from "~/components/examples/ExampleCarousel.vue?raw";
 import ExampleCollapsibleRaw from "~/components/examples/ExampleCollapsible.vue?raw";
@@ -175,6 +177,7 @@ const getExampleComponent = (component: ComponentItem) => {
 		avatar: ExampleAvatar,
 		breadcrumb: ExampleBreadcrumb,
 		button: ExampleButton,
+		"button-group": ExampleButtonGroup,
 		calendar: ExampleCalendar,
 		carousel: ExampleCarousel,
 		collapsible: ExampleCollapsible,
@@ -213,6 +216,7 @@ const getExampleComponentRaw = (component: ComponentItem) => {
 		avatar: ExampleAvatarRaw,
 		breadcrumb: ExampleBreadcrumbRaw,
 		button: ExampleButtonRaw,
+		"button-group": ExampleButtonGroupRaw,
 		calendar: ExampleCalendarRaw,
 		carousel: ExampleCarouselRaw,
 		collapsible: ExampleCollapsibleRaw,
