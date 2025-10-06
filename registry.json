@@ -795,6 +795,44 @@
 			]
 		},
 		{
+			"name": "empty",
+			"type": "registry:ui",
+			"title": "Empty",
+			"description": "A component for displaying empty states with icons, titles, and descriptions.",
+			"dependencies": ["class-variance-authority"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/empty/Empty.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/empty/EmptyContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/empty/EmptyDescription.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/empty/EmptyHeader.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/empty/EmptyMedia.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/empty/EmptyTitle.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/empty/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "input",
 			"type": "registry:ui",
 			"title": "Input",

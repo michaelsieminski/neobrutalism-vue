@@ -1,0 +1,36 @@
+<script setup lang="ts">
+import { ArrowUpRightIcon, FolderCode } from "lucide-vue-next";
+import { Button } from "@registry/neobrutalism/ui/button";
+import {
+	Empty,
+	EmptyContent,
+	EmptyDescription,
+	EmptyHeader,
+	EmptyMedia,
+	EmptyTitle,
+} from "@registry/neobrutalism/ui/empty";
+</script>
+
+<template>
+  <Empty>
+    <EmptyHeader>
+      <EmptyMedia variant="icon">
+        <FolderCode />
+      </EmptyMedia>
+      <EmptyTitle>No Projects Yet</EmptyTitle>
+      <EmptyDescription>
+        You haven't created any projects yet. Get started by creating your first
+        project.
+      </EmptyDescription>
+    </EmptyHeader>
+    <EmptyContent>
+      <div class="flex gap-2">
+        <Button>Create Project</Button>
+        <Button variant="neutral"> Import Project </Button>
+      </div>
+    </EmptyContent>
+    <Button variant="ghost" as-child class="text-muted-foreground" size="sm">
+      <a href="#"> Learn More <ArrowUpRightIcon /> </a>
+    </Button>
+  </Empty>
+</template>
