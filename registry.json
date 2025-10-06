@@ -675,6 +675,56 @@
 			]
 		},
 		{
+			"name": "drawer",
+			"type": "registry:ui",
+			"title": "Drawer",
+			"description": "A slide-in panel component that can appear from any edge of the screen.",
+			"dependencies": ["vaul-vue", "reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/drawer/Drawer.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/drawer/DrawerClose.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/drawer/DrawerContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/drawer/DrawerDescription.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/drawer/DrawerFooter.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/drawer/DrawerHeader.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/drawer/DrawerOverlay.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/drawer/DrawerTitle.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/drawer/DrawerTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/drawer/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "dropdown-menu",
 			"type": "registry:ui",
 			"title": "Dropdown Menu",

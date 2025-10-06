@@ -54,6 +54,7 @@ import ExampleBadge from "~/components/examples/ExampleBadge.vue";
 import ExampleCheckbox from "~/components/examples/ExampleCheckbox.vue";
 import ExampleCombobox from "~/components/examples/ExampleCombobox.vue";
 import ExampleDialog from "~/components/examples/ExampleDialog.vue";
+import ExampleDrawer from "~/components/examples/ExampleDrawer.vue";
 import ExampleCommand from "~/components/examples/ExampleCommand.vue";
 import ExampleContextMenu from "~/components/examples/ExampleContextMenu.vue";
 import ExampleTable from "~/components/examples/ExampleTable.vue";
@@ -84,6 +85,7 @@ import ExampleBadgeRaw from "~/components/examples/ExampleBadge.vue?raw";
 import ExampleCheckboxRaw from "~/components/examples/ExampleCheckbox.vue?raw";
 import ExampleComboboxRaw from "~/components/examples/ExampleCombobox.vue?raw";
 import ExampleDialogRaw from "~/components/examples/ExampleDialog.vue?raw";
+import ExampleDrawerRaw from "~/components/examples/ExampleDrawer.vue?raw";
 import ExampleCommandRaw from "~/components/examples/ExampleCommand.vue?raw";
 import ExampleContextMenuRaw from "~/components/examples/ExampleContextMenu.vue?raw";
 import ExampleTableRaw from "~/components/examples/ExampleTable.vue?raw";
@@ -199,6 +201,7 @@ const getExampleComponent = (component: ComponentItem) => {
 		checkbox: ExampleCheckbox,
 		combobox: ExampleCombobox,
 		dialog: ExampleDialog,
+		drawer: ExampleDrawer,
 		command: ExampleCommand,
 		"context-menu": ExampleContextMenu,
 		table: ExampleTable,
@@ -238,6 +241,7 @@ const getExampleComponentRaw = (component: ComponentItem) => {
 		checkbox: ExampleCheckboxRaw,
 		combobox: ExampleComboboxRaw,
 		dialog: ExampleDialogRaw,
+		drawer: ExampleDrawerRaw,
 		command: ExampleCommandRaw,
 		"context-menu": ExampleContextMenuRaw,
 		table: ExampleTableRaw,
