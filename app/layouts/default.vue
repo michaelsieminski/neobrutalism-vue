@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ScrollArea } from "@registry/neobrutalism/ui/scroll-area";
+import { Toaster } from "@registry/neobrutalism/ui/toast";
 </script>
 
 <template>
@@ -10,5 +11,6 @@ import { ScrollArea } from "@registry/neobrutalism/ui/scroll-area";
     <ScrollArea class="w-full h-screen">
       <slot />
     </ScrollArea>
+    <Toaster />
   </div>
 </template>

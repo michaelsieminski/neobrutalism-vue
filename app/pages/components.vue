@@ -59,6 +59,8 @@ import ExampleCommand from "~/components/examples/ExampleCommand.vue";
 import ExampleContextMenu from "~/components/examples/ExampleContextMenu.vue";
 import ExampleTable from "~/components/examples/ExampleTable.vue";
 import ExampleEmpty from "~/components/examples/ExampleEmpty.vue";
+import ExampleToast from "~/components/examples/ExampleToast.vue";
+import ExampleForm from "~/components/examples/ExampleForm.vue";
 
 import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw";
 import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
@@ -91,6 +93,8 @@ import ExampleCommandRaw from "~/components/examples/ExampleCommand.vue?raw";
 import ExampleContextMenuRaw from "~/components/examples/ExampleContextMenu.vue?raw";
 import ExampleTableRaw from "~/components/examples/ExampleTable.vue?raw";
 import ExampleEmptyRaw from "~/components/examples/ExampleEmpty.vue?raw";
+import ExampleToastRaw from "~/components/examples/ExampleToast.vue?raw";
+import ExampleFormRaw from "~/components/examples/ExampleForm.vue?raw";
 
 const route = useRoute();
 const router = useRouter();
@@ -208,6 +212,8 @@ const getExampleComponent = (component: ComponentItem) => {
 		"context-menu": ExampleContextMenu,
 		table: ExampleTable,
 		empty: ExampleEmpty,
+		toast: ExampleToast,
+		form: ExampleForm,
 	};
 	return exampleMap[component.name];
 };
@@ -249,6 +255,8 @@ const getExampleComponentRaw = (component: ComponentItem) => {
 		"context-menu": ExampleContextMenuRaw,
 		table: ExampleTableRaw,
 		empty: ExampleEmptyRaw,
+		toast: ExampleToastRaw,
+		form: ExampleFormRaw,
 	};
 
 	return exampleRawMap[component.name];
