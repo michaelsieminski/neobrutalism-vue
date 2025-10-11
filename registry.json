@@ -833,6 +833,56 @@
 			]
 		},
 		{
+			"name": "field",
+			"type": "registry:ui",
+			"title": "Field",
+			"description": "A flexible field wrapper for composing neobrutalist form layouts.",
+			"dependencies": ["class-variance-authority"],
+			"registryDependencies": ["utils", "label"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/field/Field.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/field/FieldContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/field/FieldDescription.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/field/FieldError.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/field/FieldGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/field/FieldLabel.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/field/FieldLegend.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/field/FieldSet.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/field/FieldTitle.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/field/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "form",
 			"type": "registry:ui",
 			"title": "Form",
