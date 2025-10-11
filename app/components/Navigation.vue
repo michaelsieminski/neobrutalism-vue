@@ -83,7 +83,7 @@ onMounted(() => {
       >
         <Button
           variant="neutral"
-          class="text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-4"
+          class="text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-4 cursor-pointer"
         >
           <Github class="w-4 h-4 sm:w-5 sm:h-5" />
           <span class="hidden xl:inline">{{ stars }}</span>
@@ -97,7 +97,7 @@ onMounted(() => {
       >
         <Button
           variant="neutral"
-          class="text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-4"
+          class="text-sm sm:text-base py-2 px-3 sm:py-3 sm:px-4 cursor-pointer"
         >
           <svg
             class="w-4 h-4 sm:w-5 sm:h-5"

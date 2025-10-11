@@ -925,6 +925,32 @@
 			]
 		},
 		{
+			"name": "hover-card",
+			"type": "registry:ui",
+			"title": "Hover Card",
+			"description": "A hoverable surface that displays supplemental content on demand.",
+			"dependencies": ["reka-ui", "@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/hover-card/HoverCard.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/hover-card/HoverCardContent.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/hover-card/HoverCardTrigger.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/hover-card/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "input",
 			"type": "registry:ui",
 			"title": "Input",
