@@ -61,6 +61,8 @@ import ExampleTable from "~/components/examples/ExampleTable.vue";
 import ExampleEmpty from "~/components/examples/ExampleEmpty.vue";
 import ExampleToast from "~/components/examples/ExampleToast.vue";
 import ExampleForm from "~/components/examples/ExampleForm.vue";
+import ExampleTextarea from "~/components/examples/ExampleTextarea.vue";
+import ExampleField from "~/components/examples/ExampleField.vue";
 
 import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw";
 import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
@@ -95,6 +97,8 @@ import ExampleTableRaw from "~/components/examples/ExampleTable.vue?raw";
 import ExampleEmptyRaw from "~/components/examples/ExampleEmpty.vue?raw";
 import ExampleToastRaw from "~/components/examples/ExampleToast.vue?raw";
 import ExampleFormRaw from "~/components/examples/ExampleForm.vue?raw";
+import ExampleTextareaRaw from "~/components/examples/ExampleTextarea.vue?raw";
+import ExampleFieldRaw from "~/components/examples/ExampleField.vue?raw";
 
 const route = useRoute();
 const router = useRouter();
@@ -214,6 +218,8 @@ const getExampleComponent = (component: ComponentItem) => {
 		empty: ExampleEmpty,
 		toast: ExampleToast,
 		form: ExampleForm,
+		textarea: ExampleTextarea,
+		field: ExampleField,
 	};
 	return exampleMap[component.name];
 };
@@ -257,6 +263,8 @@ const getExampleComponentRaw = (component: ComponentItem) => {
 		empty: ExampleEmptyRaw,
 		toast: ExampleToastRaw,
 		form: ExampleFormRaw,
+		textarea: ExampleTextareaRaw,
+		field: ExampleFieldRaw,
 	};
 
 	return exampleRawMap[component.name];

@@ -943,6 +943,24 @@
 			]
 		},
 		{
+			"name": "textarea",
+			"type": "registry:ui",
+			"title": "Textarea",
+			"description": "A multiline text input with neobrutalism styling.",
+			"dependencies": ["@vueuse/core"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/textarea/Textarea.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/textarea/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "label",
 			"type": "registry:ui",
 			"title": "Label",
