@@ -15,7 +15,6 @@ import {
 } from "@registry/neobrutalism/ui/tabs";
 import { ScrollArea } from "@registry/neobrutalism/ui/scroll-area";
 import { Menu, ExternalLink } from "lucide-vue-next";
-import { useRegistry, type RegistryItem } from "~/composables/useRegistry";
 import {
 	useComponents,
 	isCustomComponent,
@@ -64,6 +63,7 @@ import ExampleForm from "~/components/examples/ExampleForm.vue";
 import ExampleTextarea from "~/components/examples/ExampleTextarea.vue";
 import ExampleField from "~/components/examples/ExampleField.vue";
 import ExampleHoverCard from "~/components/examples/ExampleHoverCard.vue";
+import ExampleInputGroup from "~/components/examples/ExampleInputGroup.vue";
 
 import ExampleAccordionRaw from "~/components/examples/ExampleAccordion.vue?raw";
 import ExampleAvatarRaw from "~/components/examples/ExampleAvatar.vue?raw";
@@ -101,6 +101,7 @@ import ExampleFormRaw from "~/components/examples/ExampleForm.vue?raw";
 import ExampleTextareaRaw from "~/components/examples/ExampleTextarea.vue?raw";
 import ExampleFieldRaw from "~/components/examples/ExampleField.vue?raw";
 import ExampleHoverCardRaw from "~/components/examples/ExampleHoverCard.vue?raw";
+import ExampleInputGroupRaw from "~/components/examples/ExampleInputGroup.vue?raw";
 
 const route = useRoute();
 const router = useRouter();
@@ -223,6 +224,7 @@ const getExampleComponent = (component: ComponentItem) => {
 		textarea: ExampleTextarea,
 		field: ExampleField,
 		"hover-card": ExampleHoverCard,
+		"input-group": ExampleInputGroup,
 	};
 	return exampleMap[component.name];
 };
@@ -269,6 +271,7 @@ const getExampleComponentRaw = (component: ComponentItem) => {
 		textarea: ExampleTextareaRaw,
 		field: ExampleFieldRaw,
 		"hover-card": ExampleHoverCardRaw,
+		"input-group": ExampleInputGroupRaw,
 	};
 
 	return exampleRawMap[component.name];

@@ -969,6 +969,44 @@
 			]
 		},
 		{
+			"name": "input-group",
+			"type": "registry:ui",
+			"title": "Input Group",
+			"description": "Combine inputs, buttons, and text add-ons inside a single neobrutalism-styled wrapper.",
+			"dependencies": ["class-variance-authority"],
+			"registryDependencies": ["utils", "input", "button", "textarea"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/input-group/InputGroup.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/input-group/InputGroupAddon.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/input-group/InputGroupButton.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/input-group/InputGroupInput.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/input-group/InputGroupText.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/input-group/InputGroupTextarea.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/input-group/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "textarea",
 			"type": "registry:ui",
 			"title": "Textarea",
