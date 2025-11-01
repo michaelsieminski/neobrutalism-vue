@@ -3,22 +3,22 @@ import { ref, computed, onMounted, watch, nextTick } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { Button } from "@registry/neobrutalism/ui/button";
 import {
-	Sheet,
-	SheetContent,
-	SheetTrigger,
+  Sheet,
+  SheetContent,
+  SheetTrigger,
 } from "@registry/neobrutalism/ui/sheet";
 import {
-	Tabs,
-	TabsContent,
-	TabsList,
-	TabsTrigger,
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
 } from "@registry/neobrutalism/ui/tabs";
 import { ScrollArea } from "@registry/neobrutalism/ui/scroll-area";
 import { Menu, ExternalLink } from "lucide-vue-next";
 import {
-	useComponents,
-	isCustomComponent,
-	type ComponentItem,
+  useComponents,
+  isCustomComponent,
+  type ComponentItem,
 } from "~/composables/useComponents";
 import CodeBlock from "~/components/CodeBlock.vue";
 import { usePackageManagerStore } from "~/stores/packageManager";
@@ -111,198 +111,202 @@ const searchQuery = ref("");
 const { getComponents, getComponentByName } = useComponents();
 
 const components = computed(() => {
-	return getComponents();
+  return getComponents();
 });
 
 const filteredComponents = computed(() => {
-	if (!searchQuery.value) return components.value;
-	const query = searchQuery.value.toLowerCase();
-	return components.value.filter(
-		(c: ComponentItem) =>
-			c.title.toLowerCase().includes(query) ||
-			c.name.toLowerCase().includes(query),
-	);
+  if (!searchQuery.value) return components.value;
+  const query = searchQuery.value.toLowerCase();
+  return components.value.filter(
+    (c: ComponentItem) =>
+      c.title.toLowerCase().includes(query) ||
+      c.name.toLowerCase().includes(query)
+  );
 });
 
 const selectedComponent = computed(() => {
-	const name = route.query.component as string;
-	if (!name) return components.value[0] || null;
-	return getComponentByName(name) || components.value[0] || null;
+  const name = route.query.component as string;
+  if (!name) return components.value[0] || null;
+  return getComponentByName(name) || components.value[0] || null;
 });
 
 useHead({
-	title: computed(() =>
-		selectedComponent.value ? selectedComponent.value.title : "Components",
-	),
+  title: computed(() =>
+    selectedComponent.value ? selectedComponent.value.title : "Components"
+  ),
 });
 
 const selectComponent = (componentName: string) => {
-	router.push({ query: { component: componentName } });
-	isMobileMenuOpen.value = false;
+  router.push({ query: { component: componentName } });
+  isMobileMenuOpen.value = false;
 };
 
 const scrollToSelectedComponent = () => {
-	nextTick(() => {
-		const selectedButton = document.querySelector(
-			'button[data-selected="true"]',
-		);
-		if (selectedButton) {
-			selectedButton.scrollIntoView({
-				behavior: "smooth",
-				block: "center",
-			});
-		}
-	});
+  nextTick(() => {
+    const selectedButton = document.querySelector(
+      'button[data-selected="true"]'
+    );
+    if (selectedButton) {
+      selectedButton.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  });
 };
 
 const scrollPageToTop = () => {
-	nextTick(() => {
-		const viewport = document.querySelector("[data-reka-scroll-area-viewport]");
-		if (viewport) {
-			viewport.scrollTo({
-				top: 0,
-				behavior: "smooth",
-			});
-		}
-	});
+  nextTick(() => {
+    const viewport = document.querySelector("[data-reka-scroll-area-viewport]");
+    if (viewport) {
+      viewport.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  });
 };
 
 onMounted(() => {
-	if (!route.query.component && components.value[0]) {
-		router.push({ query: { component: components.value[0].name } });
-	}
-	scrollToSelectedComponent();
+  if (!route.query.component && components.value[0]) {
+    router.push({ query: { component: components.value[0].name } });
+  }
+  scrollToSelectedComponent();
 });
 
 watch(
-	() => route.query.component,
-	() => {
-		scrollToSelectedComponent();
-		scrollPageToTop();
-	},
+  () => route.query.component,
+  () => {
+    scrollToSelectedComponent();
+    scrollPageToTop();
+  }
 );
 
 const getExampleComponent = (component: ComponentItem) => {
-	if (isCustomComponent(component)) {
-		return component.component;
-	}
+  if (isCustomComponent(component)) {
+    return component.component;
+  }
 
-	const exampleMap: Record<string, any> = {
-		accordion: ExampleAccordion,
-		avatar: ExampleAvatar,
-		breadcrumb: ExampleBreadcrumb,
-		button: ExampleButton,
-		"button-group": ExampleButtonGroup,
-		calendar: ExampleCalendar,
-		carousel: ExampleCarousel,
-		collapsible: ExampleCollapsible,
-		"dropdown-menu": ExampleDropdownMenu,
-		input: ExampleInput,
-		label: ExampleLabel,
-		popover: ExamplePopover,
-		sheet: ExampleSheet,
-		skeleton: ExampleSkeleton,
-		tooltip: ExampleTooltip,
-		sidebar: ExampleSidebar,
-		select: ExampleSelect,
-		card: ExampleCard,
-		tabs: ExampleTabs,
-		alert: ExampleAlert,
-		"alert-dialog": ExampleAlertDialog,
-		"scroll-area": ExampleScrollArea,
-		badge: ExampleBadge,
-		checkbox: ExampleCheckbox,
-		combobox: ExampleCombobox,
-		dialog: ExampleDialog,
-		drawer: ExampleDrawer,
-		command: ExampleCommand,
-		"context-menu": ExampleContextMenu,
-		table: ExampleTable,
-		empty: ExampleEmpty,
-		toast: ExampleToast,
-		form: ExampleForm,
-		textarea: ExampleTextarea,
-		field: ExampleField,
-		"hover-card": ExampleHoverCard,
-		"input-group": ExampleInputGroup,
-	};
-	return exampleMap[component.name];
+  const exampleMap: Record<string, any> = {
+    accordion: ExampleAccordion,
+    avatar: ExampleAvatar,
+    breadcrumb: ExampleBreadcrumb,
+    button: ExampleButton,
+    "button-group": ExampleButtonGroup,
+    calendar: ExampleCalendar,
+    carousel: ExampleCarousel,
+    collapsible: ExampleCollapsible,
+    "dropdown-menu": ExampleDropdownMenu,
+    input: ExampleInput,
+    label: ExampleLabel,
+    popover: ExamplePopover,
+    sheet: ExampleSheet,
+    skeleton: ExampleSkeleton,
+    tooltip: ExampleTooltip,
+    sidebar: ExampleSidebar,
+    select: ExampleSelect,
+    card: ExampleCard,
+    tabs: ExampleTabs,
+    alert: ExampleAlert,
+    "alert-dialog": ExampleAlertDialog,
+    "scroll-area": ExampleScrollArea,
+    badge: ExampleBadge,
+    checkbox: ExampleCheckbox,
+    combobox: ExampleCombobox,
+    dialog: ExampleDialog,
+    drawer: ExampleDrawer,
+    command: ExampleCommand,
+    "context-menu": ExampleContextMenu,
+    table: ExampleTable,
+    empty: ExampleEmpty,
+    toast: ExampleToast,
+    form: ExampleForm,
+    textarea: ExampleTextarea,
+    field: ExampleField,
+    "hover-card": ExampleHoverCard,
+    "input-group": ExampleInputGroup,
+  };
+  return exampleMap[component.name];
 };
 
 const getExampleComponentRaw = (component: ComponentItem) => {
-	if (isCustomComponent(component)) {
-		return component.rawCode;
-	}
+  if (isCustomComponent(component)) {
+    return component.rawCode;
+  }
 
-	const exampleRawMap: Record<string, string> = {
-		accordion: ExampleAccordionRaw,
-		avatar: ExampleAvatarRaw,
-		breadcrumb: ExampleBreadcrumbRaw,
-		button: ExampleButtonRaw,
-		"button-group": ExampleButtonGroupRaw,
-		calendar: ExampleCalendarRaw,
-		carousel: ExampleCarouselRaw,
-		collapsible: ExampleCollapsibleRaw,
-		"dropdown-menu": ExampleDropdownMenuRaw,
-		input: ExampleInputRaw,
-		label: ExampleLabelRaw,
-		popover: ExamplePopoverRaw,
-		sheet: ExampleSheetRaw,
-		skeleton: ExampleSkeletonRaw,
-		tooltip: ExampleTooltipRaw,
-		select: ExampleSelectRaw,
-		card: ExampleCardRaw,
-		tabs: ExampleTabsRaw,
-		alert: ExampleAlertRaw,
-		sidebar: ExampleSidebarUsageRaw,
-		"alert-dialog": ExampleAlertDialogRaw,
-		"scroll-area": ExampleScrollAreaRaw,
-		badge: ExampleBadgeRaw,
-		checkbox: ExampleCheckboxRaw,
-		combobox: ExampleComboboxRaw,
-		dialog: ExampleDialogRaw,
-		drawer: ExampleDrawerRaw,
-		command: ExampleCommandRaw,
-		"context-menu": ExampleContextMenuRaw,
-		table: ExampleTableRaw,
-		empty: ExampleEmptyRaw,
-		toast: ExampleToastRaw,
-		form: ExampleFormRaw,
-		textarea: ExampleTextareaRaw,
-		field: ExampleFieldRaw,
-		"hover-card": ExampleHoverCardRaw,
-		"input-group": ExampleInputGroupRaw,
-	};
+  const exampleRawMap: Record<string, string> = {
+    accordion: ExampleAccordionRaw,
+    avatar: ExampleAvatarRaw,
+    breadcrumb: ExampleBreadcrumbRaw,
+    button: ExampleButtonRaw,
+    "button-group": ExampleButtonGroupRaw,
+    calendar: ExampleCalendarRaw,
+    carousel: ExampleCarouselRaw,
+    collapsible: ExampleCollapsibleRaw,
+    "dropdown-menu": ExampleDropdownMenuRaw,
+    input: ExampleInputRaw,
+    label: ExampleLabelRaw,
+    popover: ExamplePopoverRaw,
+    sheet: ExampleSheetRaw,
+    skeleton: ExampleSkeletonRaw,
+    tooltip: ExampleTooltipRaw,
+    select: ExampleSelectRaw,
+    card: ExampleCardRaw,
+    tabs: ExampleTabsRaw,
+    alert: ExampleAlertRaw,
+    sidebar: ExampleSidebarUsageRaw,
+    "alert-dialog": ExampleAlertDialogRaw,
+    "scroll-area": ExampleScrollAreaRaw,
+    badge: ExampleBadgeRaw,
+    checkbox: ExampleCheckboxRaw,
+    combobox: ExampleComboboxRaw,
+    dialog: ExampleDialogRaw,
+    drawer: ExampleDrawerRaw,
+    command: ExampleCommandRaw,
+    "context-menu": ExampleContextMenuRaw,
+    table: ExampleTableRaw,
+    empty: ExampleEmptyRaw,
+    toast: ExampleToastRaw,
+    form: ExampleFormRaw,
+    textarea: ExampleTextareaRaw,
+    field: ExampleFieldRaw,
+    "hover-card": ExampleHoverCardRaw,
+    "input-group": ExampleInputGroupRaw,
+  };
 
-	return exampleRawMap[component.name];
+  return exampleRawMap[component.name];
 };
 
 const getInstallCommands = (component: ComponentItem) => {
-	const registryPath =
-		isCustomComponent(component) && component.registryPath
-			? component.registryPath
-			: component.name;
+  const registryPath =
+    isCustomComponent(component) && component.registryPath
+      ? component.registryPath
+      : component.name;
 
-	const url = `https://neobrutalism-vue.com/r/${registryPath}.json`;
+  const url = `https://neobrutalism-vue.com/r/${registryPath}.json`;
 
-	return {
-		npm: `npx shadcn-vue@latest add ${url}`,
-		pnpm: `pnpm dlx shadcn-vue@latest add ${url}`,
-		bun: `bunx shadcn-vue@latest add ${url}`,
-		yarn: `yarn dlx shadcn-vue@latest add ${url}`,
-	};
+  return {
+    npm: `npx shadcn-vue@latest add ${url}`,
+    pnpm: `pnpm dlx shadcn-vue@latest add ${url}`,
+    bun: `bunx shadcn-vue@latest add ${url}`,
+    yarn: `yarn dlx shadcn-vue@latest add ${url}`,
+  };
 };
 
 const getUsageCode = (component: ComponentItem) => {
-	const rawCode = getExampleComponentRaw(component);
-	return rawCode || "";
+  const rawCode = getExampleComponentRaw(component);
+  if (!rawCode) return "";
+
+  return rawCode
+    .replace(/@\/registry\/neobrutalism\/ui\//g, "@/components/ui/")
+    .replace(/@registry\/neobrutalism\/ui\//g, "@/components/ui/");
 };
 
 const getDocumentationUrl = (component: ComponentItem) => {
-	if (isCustomComponent(component)) {
-		return undefined;
-	}
-	return `https://www.shadcn-vue.com/docs/components/${component.name}.html`;
+  if (isCustomComponent(component)) {
+    return undefined;
+  }
+  return `https://www.shadcn-vue.com/docs/components/${component.name}.html`;
 };
 </script>
 
