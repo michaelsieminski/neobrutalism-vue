@@ -22,7 +22,7 @@
 	"type": "module",
 	"private": true,
 	"scripts": {
-		"build": "nuxt build && shadcn-vue build",
+		"build": "shadcn-vue build && nuxt build",
 		"dev": "nuxt dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
