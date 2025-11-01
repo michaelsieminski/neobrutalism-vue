@@ -32,7 +32,6 @@
 		"registry:build": "shadcn-vue build"
 	},
 	"dependencies": {
-		"estree-walker": "^3.0.3",
 		"@fontsource-variable/bricolage-grotesque": "5.2.10",
 		"@fontsource-variable/public-sans": "5.2.7",
 		"@pinia-plugin-persistedstate/nuxt": "1.2.1",
