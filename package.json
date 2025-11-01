@@ -63,5 +63,11 @@
 		"@tailwindcss/vite": "4.1.16",
 		"@types/node": "24.9.2",
 		"vue-tsc": "3.1.2"
+	},
+	"resolutions": {
+		"estree-walker": "^3.0.3"
+	},
+	"overrides": {
+		"estree-walker": "^3.0.3"
 	}
 }
