@@ -18,6 +18,15 @@ export default defineNuxtConfig({
 
 	modules: ["@pinia/nuxt", "@pinia-plugin-persistedstate/nuxt"],
 
+	nitro: {
+		publicAssets: [
+			{
+				dir: "public",
+				maxAge: 60 * 60 * 24 * 365,
+			},
+		],
+	},
+
 	vite: {
 		plugins: [tailwindcss()],
 	},
