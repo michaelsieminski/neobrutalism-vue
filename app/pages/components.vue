@@ -41,6 +41,7 @@ import ExampleLabel from "~/components/examples/ExampleLabel.vue";
 import ExamplePopover from "~/components/examples/ExamplePopover.vue";
 import ExampleSheet from "~/components/examples/ExampleSheet.vue";
 import ExampleSkeleton from "~/components/examples/ExampleSkeleton.vue";
+import ExampleSonner from "~/components/examples/ExampleSonner.vue";
 import ExampleTooltip from "~/components/examples/ExampleTooltip.vue";
 import ExampleSidebar from "../components/examples/ExampleSidebar/ExampleSidebar.vue";
 import ExampleSelect from "~/components/examples/ExampleSelect.vue";
@@ -58,7 +59,6 @@ import ExampleCommand from "~/components/examples/ExampleCommand.vue";
 import ExampleContextMenu from "~/components/examples/ExampleContextMenu.vue";
 import ExampleTable from "~/components/examples/ExampleTable.vue";
 import ExampleEmpty from "~/components/examples/ExampleEmpty.vue";
-import ExampleToast from "~/components/examples/ExampleToast.vue";
 import ExampleForm from "~/components/examples/ExampleForm.vue";
 import ExampleTextarea from "~/components/examples/ExampleTextarea.vue";
 import ExampleField from "~/components/examples/ExampleField.vue";
@@ -79,6 +79,7 @@ import ExampleLabelRaw from "~/components/examples/ExampleLabel.vue?raw";
 import ExamplePopoverRaw from "~/components/examples/ExamplePopover.vue?raw";
 import ExampleSheetRaw from "~/components/examples/ExampleSheet.vue?raw";
 import ExampleSkeletonRaw from "~/components/examples/ExampleSkeleton.vue?raw";
+import ExampleSonnerRaw from "~/components/examples/ExampleSonner.vue?raw";
 import ExampleTooltipRaw from "~/components/examples/ExampleTooltip.vue?raw";
 import ExampleSelectRaw from "~/components/examples/ExampleSelect.vue?raw";
 import ExampleCardRaw from "~/components/examples/ExampleCard.vue?raw";
@@ -96,7 +97,6 @@ import ExampleCommandRaw from "~/components/examples/ExampleCommand.vue?raw";
 import ExampleContextMenuRaw from "~/components/examples/ExampleContextMenu.vue?raw";
 import ExampleTableRaw from "~/components/examples/ExampleTable.vue?raw";
 import ExampleEmptyRaw from "~/components/examples/ExampleEmpty.vue?raw";
-import ExampleToastRaw from "~/components/examples/ExampleToast.vue?raw";
 import ExampleFormRaw from "~/components/examples/ExampleForm.vue?raw";
 import ExampleTextareaRaw from "~/components/examples/ExampleTextarea.vue?raw";
 import ExampleFieldRaw from "~/components/examples/ExampleField.vue?raw";
@@ -202,6 +202,7 @@ const getExampleComponent = (component: ComponentItem) => {
 		popover: ExamplePopover,
 		sheet: ExampleSheet,
 		skeleton: ExampleSkeleton,
+		sonner: ExampleSonner,
 		tooltip: ExampleTooltip,
 		sidebar: ExampleSidebar,
 		select: ExampleSelect,
@@ -219,7 +220,6 @@ const getExampleComponent = (component: ComponentItem) => {
 		"context-menu": ExampleContextMenu,
 		table: ExampleTable,
 		empty: ExampleEmpty,
-		toast: ExampleToast,
 		form: ExampleForm,
 		textarea: ExampleTextarea,
 		field: ExampleField,
@@ -249,6 +249,7 @@ const getExampleComponentRaw = (component: ComponentItem) => {
 		popover: ExamplePopoverRaw,
 		sheet: ExampleSheetRaw,
 		skeleton: ExampleSkeletonRaw,
+		sonner: ExampleSonnerRaw,
 		tooltip: ExampleTooltipRaw,
 		select: ExampleSelectRaw,
 		card: ExampleCardRaw,
@@ -266,7 +267,6 @@ const getExampleComponentRaw = (component: ComponentItem) => {
 		"context-menu": ExampleContextMenuRaw,
 		table: ExampleTableRaw,
 		empty: ExampleEmptyRaw,
-		toast: ExampleToastRaw,
 		form: ExampleFormRaw,
 		textarea: ExampleTextareaRaw,
 		field: ExampleFieldRaw,

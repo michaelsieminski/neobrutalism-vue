@@ -1322,6 +1322,24 @@
 			]
 		},
 		{
+			"name": "sonner",
+			"type": "registry:ui",
+			"title": "Sonner",
+			"description": "An opinionated toast component for Vue, styled with neobrutalism.",
+			"dependencies": ["vue-sonner", "lucide-vue-next"],
+			"registryDependencies": ["utils"],
+			"files": [
+				{
+					"path": "registry/neobrutalism/ui/sonner/Sonner.vue",
+					"type": "registry:component"
+				},
+				{
+					"path": "registry/neobrutalism/ui/sonner/index.ts",
+					"type": "registry:component"
+				}
+			]
+		},
+		{
 			"name": "tabs",
 			"type": "registry:ui",
 			"title": "Tabs",
@@ -1397,61 +1415,6 @@
 				},
 				{
 					"path": "registry/neobrutalism/ui/table/index.ts",
-					"type": "registry:component"
-				}
-			]
-		},
-		{
-			"name": "toast",
-			"type": "registry:ui",
-			"title": "Toast",
-			"description": "A notification component that displays brief messages with neobrutalism styling.",
-			"dependencies": [
-				"reka-ui",
-				"@vueuse/core",
-				"class-variance-authority",
-				"lucide-vue-next"
-			],
-			"registryDependencies": ["utils"],
-			"files": [
-				{
-					"path": "registry/neobrutalism/ui/toast/Toast.vue",
-					"type": "registry:component"
-				},
-				{
-					"path": "registry/neobrutalism/ui/toast/ToastAction.vue",
-					"type": "registry:component"
-				},
-				{
-					"path": "registry/neobrutalism/ui/toast/ToastClose.vue",
-					"type": "registry:component"
-				},
-				{
-					"path": "registry/neobrutalism/ui/toast/ToastDescription.vue",
-					"type": "registry:component"
-				},
-				{
-					"path": "registry/neobrutalism/ui/toast/Toaster.vue",
-					"type": "registry:component"
-				},
-				{
-					"path": "registry/neobrutalism/ui/toast/ToastProvider.vue",
-					"type": "registry:component"
-				},
-				{
-					"path": "registry/neobrutalism/ui/toast/ToastTitle.vue",
-					"type": "registry:component"
-				},
-				{
-					"path": "registry/neobrutalism/ui/toast/ToastViewport.vue",
-					"type": "registry:component"
-				},
-				{
-					"path": "registry/neobrutalism/ui/toast/index.ts",
-					"type": "registry:component"
-				},
-				{
-					"path": "registry/neobrutalism/ui/toast/use-toast.ts",
 					"type": "registry:component"
 				}
 			]

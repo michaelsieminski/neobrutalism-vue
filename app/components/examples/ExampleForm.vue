@@ -1,40 +1,32 @@
 <script setup lang="ts">
 import { toTypedSchema } from "@vee-validate/zod";
 import { useForm } from "vee-validate";
-import { h } from "vue";
 import * as z from "zod";
 
 import { Button } from "@/registry/neobrutalism/ui/button";
 import {
-	FormControl,
-	FormDescription,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
 } from "@/registry/neobrutalism/ui/form";
 import { Input } from "@/registry/neobrutalism/ui/input";
-import { toast } from "@/registry/neobrutalism/ui/toast";
+import { toast } from "vue-sonner";
 
 const formSchema = toTypedSchema(
-	z.object({
-		username: z.string().min(2).max(50),
-	}),
+  z.object({
+    username: z.string().min(2).max(50),
+  })
 );
 
 const { handleSubmit } = useForm({
-	validationSchema: formSchema,
+  validationSchema: formSchema,
 });
 
 const onSubmit = handleSubmit((values) => {
-	toast({
-		title: "You submitted the following values:",
-		description: h(
-			"pre",
-			{ class: "mt-2 w-[340px] rounded-md bg-slate-950 p-4" },
-			h("code", { class: "text-white" }, JSON.stringify(values, null, 2)),
-		),
-	});
+  toast.success("Form submitted successfully!");
 });
 </script>
 

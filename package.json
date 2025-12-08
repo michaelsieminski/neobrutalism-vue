@@ -56,7 +56,8 @@
 		"vaul-vue": "0.4.1",
 		"vee-validate": "4.15.1",
 		"vue": "3.5.25",
-		"vue-router": "4.6.3"
+		"vue-router": "4.6.3",
+		"vue-sonner": "2.0.9"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.8",
